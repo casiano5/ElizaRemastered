@@ -4,6 +4,7 @@ import re
 from collections import namedtuple
 
 from speech import speech
+from speech_text import STT
 
 # Fix Python2/Python3 incompatibility
 try: input = raw_input
@@ -223,7 +224,7 @@ class Eliza:
         speech("how do you do, Please tell me your problem")
 
         while True:
-            sent = input('> ')
+            sent = input(STT() )
 
             output = self.respond(sent)
             if output is None:
