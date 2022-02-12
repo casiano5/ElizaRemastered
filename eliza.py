@@ -5,7 +5,17 @@ from collections import namedtuple
 
 from speech import speech
 from speech_text import STT
+'''
+requierments
+gtts ==2.2.3
+playsound 1.3.0
+pydub 0.25.1
+simpleaudio 1.0.4
+pyaudio 0.2.11 which requires -> port audio install via brew
+ffmpeg-> install via brew
 
+
+'''
 # Fix Python2/Python3 incompatibility
 try: input = raw_input
 except NameError: pass
