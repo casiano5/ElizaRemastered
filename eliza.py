@@ -222,10 +222,11 @@ class Eliza:
     def run(self):
         print(self.initial())
         speech("how do you do, Please tell me your problem")
-
+        
         while True:
-            sent = input(STT() )
-
+           # sent = input('>')
+            sent = input('>'+(STT()))
+            
             output = self.respond(sent)
             if output is None:
                 break
