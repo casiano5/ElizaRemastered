@@ -2,6 +2,7 @@ import logging
 import random
 import re
 from collections import namedtuple
+from xml.etree.ElementTree import tostring
 
 from speech import speech
 from speech_text import STT
@@ -17,8 +18,10 @@ ffmpeg-> install via brew
 
 '''
 # Fix Python2/Python3 incompatibility
-try: input = raw_input
-except NameError: pass
+try:
+    input = raw_input
+except NameError:
+    pass
 
 log = logging.getLogger(__name__)
 
@@ -222,21 +225,23 @@ class Eliza:
         return random.choice(self.initials)
 
     def final(self):
-         
-         
+
         speech(random.choice(self.finals))
         return random.choice(self.finals)
-       
-       
 
     def run(self):
         print(self.initial())
         speech("how do you do, Please tell me your problem")
-        
+
         while True:
-           # sent = input('>')
-            sent = input('>'+(STT()))
-            
+           # sent = input('>'))
+            # textin variable directly from speech_text
+            textin = STT()
+            # print text translation on screen
+            print(textin)
+            # sent voic input directy
+            sent = textin
+
             output = self.respond(sent)
             if output is None:
                 break
@@ -251,6 +256,7 @@ def main():
     eliza = Eliza()
     eliza.load('doctor.txt')
     eliza.run()
+
 
 if __name__ == '__main__':
     logging.basicConfig()
