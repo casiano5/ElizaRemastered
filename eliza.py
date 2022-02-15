@@ -1,6 +1,7 @@
 import logging
 import random
 import re
+import sys
 from collections import namedtuple
 from xml.etree.ElementTree import tostring
 
@@ -12,7 +13,7 @@ gtts ==2.2.3
 playsound 1.3.0
 pydub 0.25.1
 simpleaudio 1.0.4
-pyaudio 0.2.11 which requires -> port audio install via brew
+pyaudio 0.2.11 which requires -> portaudio install via brew
 ffmpeg-> install via brew
 
 
@@ -225,31 +226,47 @@ class Eliza:
         return random.choice(self.initials)
 
     def final(self):
-
-        speech(random.choice(self.finals))
-        return random.choice(self.finals)
+        if mode == "speech":
+            speech(random.choice(self.finals))
+            return random.choice(self.finals)
+        else:
+            return random.choice(self.finals)
 
     def run(self):
         print(self.initial())
-        speech("how do you do, Please tell me your problem")
+        if mode == "speech":
+            speech("how do you do, Please tell me your problem")
 
         while True:
-           # sent = input('>'))
-            # textin variable directly from speech_text
-            textin = STT()
-            # print text translation on screen
-            print(textin)
-            # sent voic input directy
-            sent = textin
+            # if speech argument
+            if mode == "speech":
+
+                # textin variable directly from speech_text
+                textin = STT()
+                # print text translation on screen
+                print(textin)
+                # sent voic input directy
+                sent = textin
+            else:
+                # text only or no argument given
+                sent = input('>')
 
             output = self.respond(sent)
             if output is None:
                 break
 
             print(output)
-            speech(output)
+            if mode == "speech":
+                speech(output)
 
         print(self.final())
+
+
+# store arguments as mode, if no argument given default to text mode
+if len(sys.argv) > 1:
+    mode = sys.argv[1]
+else:
+    mode = "text"
 
 
 def main():

@@ -12,18 +12,16 @@ def STT():
         # read audio data from microphone
         print('start talking')
         audio_data = r.record(source, duration=3)
-     #   print("Im thinking...")
-    # convert speech to text
 
+    # convert speech to text
     # recoginize() will throw code if api unreachable
 
     try:
         # using google to translate speech file to text
         text = r.recognize_google(audio_data)
         print('converting audo to text...')
-     #   print(text)
     except:
-        print('Sorry.. try agian I stupid')
+        print('Sorry.. network problems? Try agian')
     text = r.recognize_google(audio_data)
 
     return text
