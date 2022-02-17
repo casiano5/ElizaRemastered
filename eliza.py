@@ -1,7 +1,7 @@
 import logging
 import random
 import re
-from collections import namedtuple
+from GUI import *
 
 from speech import speech
 
@@ -215,24 +215,33 @@ class Eliza:
          
         speech(random.choice(self.finals))
         return random.choice(self.finals)
-       
-       
+
+    def converse(self, msg):
+
+        output = self.respond(msg)
+
+        if output is None:
+            print(self.final())
+            speech(self.final())
+            exit(0)
+        print(output)
+        speech(output)
+
+
+        return output
 
     def run(self):
         print(self.initial())
-        speech("how do you do, Please tell me your problem")
 
+        EGUI = GUI(self.initial())
+        EGUI.window.update()
+        EGUI.window.update_idletasks()
+        speech("how do you do, Please tell me your problem")
         while True:
             sent = input('> ')
-
-            output = self.respond(sent)
-            if output is None:
-                break
-
+            output = self.converse(sent)
             print(output)
             speech(output)
-
-        print(self.final())
 
 
 def main():
