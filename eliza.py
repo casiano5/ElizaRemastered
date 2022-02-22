@@ -4,6 +4,7 @@ import re
 import sys
 from collections import namedtuple
 from xml.etree.ElementTree import tostring
+from GUI import *
 
 from speech import speech
 from speech_text import STT
@@ -235,8 +236,12 @@ class Eliza:
     def run(self):
         print(self.initial())
         if mode == "speech":
-            speech("how do you do, Please tell me your problem")
+            speech("how do you do, Please tell me your problem")    
 
+        EGUI = GUI(self.initial())
+        EGUI.window.update()
+        EGUI.window.update_idletasks()
+        speech("how do you do, Please tell me your problem")
         while True:
             # if speech argument
             if mode == "speech":
@@ -254,12 +259,9 @@ class Eliza:
             output = self.respond(sent)
             if output is None:
                 break
-
             print(output)
             if mode == "speech":
                 speech(output)
-
-        print(self.final())
 
 
 # store arguments as mode, if no argument given default to text mode
