@@ -1,13 +1,27 @@
 import logging
 import random
 import re
+import sys
 from collections import namedtuple
+from xml.etree.ElementTree import tostring
 
 from speech import speech
+from speech_text import STT
+'''
+requierments
+gtts ==2.2.3
+playsound 1.3.0
+pydub 0.25.1
+simpleaudio 1.0.4
+pyaudio 0.2.11 which requires -> portaudio install via brew
+ffmpeg-> install via brew
 
-# Fix Python2/Python3 incompatibility
-try: input = raw_input
-except NameError: pass
+
+'''
+try:
+    input = raw_input
+except NameError:
+    pass
 
 log = logging.getLogger(__name__)
 
@@ -211,34 +225,70 @@ class Eliza:
         return random.choice(self.initials)
 
     def final(self):
-         
-         
-        speech(random.choice(self.finals))
-        return random.choice(self.finals)
-       
-       
+        if mode == "speech":
+            speech(random.choice(self.finals))
+            return random.choice(self.finals)
+        else:
+            return random.choice(self.finals)
 
     def run(self):
         print(self.initial())
+        if mode == "speech":
+            speech("how do you do, Please tell me your problem")
         speech("how do you do, Please tell me your problem")
-
         while True:
-            sent = input('> ')
+            # if speech argument
+            if mode == "speech":
+
+                # textin variable directly from speech_text
+                textin = STT()
+                # print text translation on screen
+                print(textin)
+                # sent voic input directy
+                sent = textin
+            else:
+                # text only or no argument given
+                sent = input('>')
 
             output = self.respond(sent)
             if output is None:
                 break
-
             print(output)
+            if mode == "speech":
+                speech(output)
+
+    def converse(self, message):
+        if mode == "speech":
+
+            # textin variable directly from speech_text
+            textin = STT()
+            # print text translation on screen
+            print(textin)
+            # sent voice input directly
+            sent = textin
+            output = self.respond(sent)
+        else:
+            output = self.respond(message)
+
+        return output
+        if output is None:
+            quit(0)
+        print(output)
+        if mode == "speech":
             speech(output)
 
-        print(self.final())
+# store arguments as mode, if no argument given default to text mode
+if len(sys.argv) > 1:
+    mode = sys.argv[1]
+else:
+    mode = "text"
 
 
 def main():
     eliza = Eliza()
     eliza.load('doctor.txt')
     eliza.run()
+
 
 if __name__ == '__main__':
     logging.basicConfig()

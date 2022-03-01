@@ -44,7 +44,7 @@ class GUI:
         messages_frame.pack()
 
 
-        #def getUserSpeech(event=None):
+        #   def getUserSpeech(event=None):
 
 
 
@@ -105,10 +105,11 @@ class GUI:
         # input box
         entry_field = tkinter.Entry(top, textvariable=my_msg)
         entry_field.bind("<Return>", send_user_input)
+        entry_field.config(width="38")
         entry_field.pack(side=tkinter.LEFT)
         # send button
         send_button = tkinter.Button(top, text="Send", command=send_user_input)
-        send_button.config()
+        send_button.config(height="2")
         send_button.pack()
         msg_list.insert(tkinter.END, "ELIZA: How do you do? Please tell me your problem")
         self.window.update()
