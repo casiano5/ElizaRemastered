@@ -235,13 +235,12 @@ class Eliza:
         print(self.initial())
         if mode == "speech":
             speech("how do you do, Please tell me your problem")
-        speech("how do you do, Please tell me your problem")
         while True:
             # if speech argument
             if mode == "speech":
 
                 # textin variable directly from speech_text
-                textin = STT()
+                textin = STT(file)
                 # print text translation on screen
                 print(textin)
                 # sent voic input directy
@@ -261,7 +260,7 @@ class Eliza:
         if mode == "speech":
 
             # textin variable directly from speech_text
-            textin = STT()
+            textin = STT(file)
             # print text translation on screen
             print(textin)
             # sent voice input directly
@@ -277,11 +276,21 @@ class Eliza:
         if mode == "speech":
             speech(output)
 
+
 # store arguments as mode, if no argument given default to text mode
-if len(sys.argv) > 1:
+# eliza.py <arg 1> <argd2>
+# if passing file must enable speech mode
+# example, python eliza.py speech
+if len(sys.argv) == 2:
     mode = sys.argv[1]
+    file = "empty"
+# example, python eliza.py speech ~/path/to/file.wav
+elif len(sys.argv) == 3:
+    mode = sys.argv[1]
+    file = sys.argv[2]
 else:
     mode = "text"
+    file = "empty"
 
 
 def main():
