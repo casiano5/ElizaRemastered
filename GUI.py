@@ -96,7 +96,7 @@ class GUI:
             myJSON = json.dumps(eliza_config)
             with open("eliconfig.json", "w") as jsonfile:
                 jsonfile.write(myJSON)
-
+                
         # speech to text
         speech_to_text_button = tkinter.Button(command=changeSTT)
         speech_to_text_button.config(
@@ -123,7 +123,8 @@ class GUI:
         if eliza_config["textToSpeechEnable"]:
             speech("How do you do? Please tell me your problem")
 
-
+            
 EGUI = GUI()
 EGUI.window.mainloop()
 EGUI.window.update_idletasks()
+
