@@ -128,4 +128,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.DS_Store
+
+# MacOS Dir Store
+**.DS_Store
+
+# Manual TTS Test Files
+test_tts_manual/
