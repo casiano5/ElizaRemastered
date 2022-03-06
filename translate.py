@@ -22,9 +22,29 @@ def lang_Compatability():
                 supportedLangs[key2]= ttsDict[key2]
     
     return supportedLangs
+
+def naturalSoundingLangs():
+    langs = {
+        "en":"English",
+        "fr":"French",
+        "it":"Italian",
+        "ja":"Japanese",
+        "nl":"Dutch",
+        "es":"Spanish",
+        "ko":"Korean",
+        "pt":"Portugese",
+        "zh":"Chinese (Mandarin)",
+        "hi":"Hindi",
+        "de":"German"
+
+    }
+    return langs
                 
 
 if __name__ == "__main__":
     print(translate("Bonsoir, sava bien?"))
     print(lang_Compatability())
+    print("\n")
+    print(naturalSoundingLangs())
+        
     
