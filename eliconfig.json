@@ -1,1 +1,1 @@
-{"textToSpeechEnable": true, "speechToTextEnable": true, "speakerIconPath": "Speaker_Icon.png", "micIconPath": "mic.png"}
+{"textToSpeechEnable": false, "speechToTextEnable": false, "speakerIconPath": "disSpeaker_Icon.png", "micIconPath": "disMic.png", "language": "en"}
