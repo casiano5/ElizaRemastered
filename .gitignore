@@ -9,6 +9,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+/.idea/
 develop-eggs/
 dist/
 downloads/
@@ -127,6 +128,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# MacOS Dir Store
+**.DS_Store
 
 # Manual TTS Test Files
 test_tts_manual/
