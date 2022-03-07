@@ -9,13 +9,24 @@ from speech_text import STT
 
 
 speechRunning = False
-supported_langs_dict = translate.lang_Compatability()
 # create a dict with language names as keys and locales as values
-reversed_langs_dict = {value: key for (key, value) in supported_langs_dict.items()}
-supported_langs = list(supported_langs_dict.values())
+
 
 if not os.path.exists("eliconfig.json"):
     eliza_config = {
+        "naturalSoundingLanguages": {
+        "en":"English",
+        "fr":"French",
+        "it":"Italian",
+        "ja":"Japanese",
+        "nl":"Dutch",
+        "es":"Spanish",
+        "ko":"Korean",
+        "pt":"Portugese",
+        "zh-CN":"Chinese",
+        "hi":"Hindi",
+        "de":"German"
+    },
         "textToSpeechEnable": False,
         "speechToTextEnable": False,
         "speakerIconPath": "disSpeaker_Icon.png",
@@ -29,6 +40,7 @@ if not os.path.exists("eliconfig.json"):
 else:
     with open("eliconfig.json", "r") as jsonfile:
         eliza_config = json.load(jsonfile)
+reversed_langs_dict = {value: key for (key, value) in eliza_config["naturalSoundingLanguages"].items()}
 eli = eliza.Eliza()
 eli.load("doctor.txt")
 
@@ -62,8 +74,20 @@ class GUI:
         def send_user_input(event=None):
             end = False
             or_message = my_msg.get()
-            msg_to_eng = translate.translate(or_message, dest="en")
-            print(f"Message to English: {msg_to_eng}")
+            try:
+                or_message_language = eliza_config["naturalSoundingLanguages"][translate.detectlanguage(or_message)]
+            except KeyError as e:
+                msg_list.insert(tkinter.END, "SYSTEM: The language you have entered is not supported.")
+                my_msg.set("")
+                self.window.update()
+                self.window.update_idletasks()
+            if translate.detectlanguage(or_message) != eliza_config["language"]:
+                msg_list.insert(tkinter.END, f"SYSTEM: The language you've entered <{or_message_language}>"
+                                             f" is not <{eliza_config['naturalSoundingLanguages'][eliza_config['language']]}>.")
+                raise Exception(f"The language you've entered: {or_message_language} is not {eliza_config['language']}.")
+            msg_to_eng = or_message
+            if eliza_config["language"] != "en":
+                msg_to_eng = translate.translate(or_message, dest="en")
             my_msg.set("")
             usermsg = "USER: " + or_message
             msg_list.insert(tkinter.END, usermsg)
@@ -140,12 +164,11 @@ class GUI:
         # language dropdown
 
         drop_string = tkinter.StringVar()
-        drop_string.set(supported_langs_dict[eliza_config["language"]])
+        drop_string.set(eliza_config["naturalSoundingLanguages"][eliza_config["language"]])
 
 
         def change_language(self):
             choice = drop_string.get()
-            print(choice)
             if reversed_langs_dict[choice] != eliza_config["language"]:
                 eliza_config["language"] = reversed_langs_dict[choice]
                 myJSON = json.dumps(eliza_config)
@@ -155,7 +178,7 @@ class GUI:
         dropdown = tkinter.OptionMenu(
             top,
             drop_string,
-            *supported_langs,
+            *list(eliza_config["naturalSoundingLanguages"].values()),
             command=change_language
         )
 
@@ -163,7 +186,6 @@ class GUI:
         dropdown.pack(expand=True)
 
         greet_msg = "How do you do? Please tell me your problem"
-        print(f'Language upon startup: {eliza_config["language"]}')
         if eliza_config["language"] != "en":
             greet_msg = translate.translate(greet_msg, dest=eliza_config["language"])
         msg_list.insert(
