@@ -3,9 +3,11 @@
 #from fileinput import filename
 import speech_recognition as sr
 
+count = 0
 
-def STT(file="empty", language="en"):
-    count = 0
+
+def STT(file="empty", language="en):
+    global count
     # attempt to initializ the recognizerqu
     r = sr.Recognizer()
     # if no file path is given
@@ -35,5 +37,5 @@ def STT(file="empty", language="en"):
         with sr.AudioFile(file) as source:
             audio_data = r.record(source)
             text = r.recognize_google(audio_data)
-            count += 1
+
     return text
