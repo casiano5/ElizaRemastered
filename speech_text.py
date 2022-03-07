@@ -3,15 +3,11 @@
 #from fileinput import filename
 import speech_recognition as sr
 
-count = 0
-
-
 def STT(file="empty", language="en"):
-    global count
     # attempt to initializ the recognizerqu
     r = sr.Recognizer()
     # if no file path is given
-    if (file == "empty") or (count > 0):
+    if (file == "empty"):
 
         with sr.Microphone() as source:
             # read audio data from microphone
@@ -24,7 +20,7 @@ def STT(file="empty", language="en"):
         try:
             # using google to translate speech file to text
             print(language)
-            text = r.recognize_google(audio_data, language)
+            text = r.recognize_google(audio_data)
             print('converting audo to text...')
         except:
             print('Sorry.. network problems? Try agian')
@@ -32,7 +28,6 @@ def STT(file="empty", language="en"):
         return text
     else:
         # if file path is passed, use the file
-        count += 1
 
         with sr.AudioFile(file) as source:
             audio_data = r.record(source)
