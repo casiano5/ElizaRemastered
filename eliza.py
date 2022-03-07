@@ -234,7 +234,7 @@ class Eliza:
     def run(self):
         print(self.initial())
         if mode == "speech":
-            speech("how do you do, Please tell me your problem"
+            speech("how do you do, Please tell me your problem")
         while True:
             # if speech argument
             if mode == "speech":
