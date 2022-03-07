@@ -6,7 +6,7 @@ import speech_recognition as sr
 count = 0
 
 
-def STT(file="empty"):
+def STT(file="empty", language="en):
     global count
     # attempt to initializ the recognizerqu
     r = sr.Recognizer()
@@ -23,7 +23,8 @@ def STT(file="empty"):
 
         try:
             # using google to translate speech file to text
-            text = r.recognize_google(audio_data)
+            print(language)
+            text = r.recognize_google(audio_data, language)
             print('converting audo to text...')
         except:
             print('Sorry.. network problems? Try agian')
