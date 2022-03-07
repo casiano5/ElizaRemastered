@@ -6,7 +6,7 @@ import speech_recognition as sr
 count = 0
 
 
-def STT(file="empty", language="en):
+def STT(file="empty", language="en"):
     global count
     # attempt to initializ the recognizerqu
     r = sr.Recognizer()
