@@ -25,6 +25,6 @@ const speechToText = (file="empty", language = "en") => {
 exports.speechToText = speechToText;
 
 const textToSpeech = (input, language = "en") => {
-    child_process.execSync('python python/runnerTestToSpeech.py "' + input + '" "' + language + '" ').replace(/(\r\n|\n|\r)/gm, "");
+    child_process.execSync('python python/runnerTestToSpeech.py "' + input + '" "' + language + '" ');
 }
 exports.textToSpeech = textToSpeech;
