@@ -1,5 +1,7 @@
+''' 
+requires googletrans == 4.0.0rc1
+'''
 from googletrans import Translator
-import sys
 
 translator = Translator()
 
@@ -9,5 +11,3 @@ def translate(text,dest="en"):
 
 def detectlanguage(text):
     return translator.translate(text).src
-
-print(translate(sys.argv[1], sys.argv[2]))

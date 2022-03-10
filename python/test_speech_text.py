@@ -1,6 +1,6 @@
 # Test Speech to Text
 import pytest
-import os
+import speech_text
 
 @pytest.mark.parametrize(
     "filepath,text", [
@@ -32,6 +32,5 @@ import os
     ]
 )
 def test_stt(filepath, text):
-    stream = os.popen("python py/speech_text.py " + "\"" + "py/test/.SttTestFiles/" + filepath + "\" " + "\"" + "en" + "\"")
-    stt_out = stream.read().strip()
+    stt_out = speech_text.STT(".SttTestFiles/" + filepath)
     assert stt_out == text

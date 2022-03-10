@@ -1,6 +1,6 @@
 # Test Translate
 import pytest
-import os
+import translate
 
 # detect to english
 @pytest.mark.parametrize(
@@ -18,9 +18,7 @@ import os
     ]
 )
 def test_english(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "en" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
+    assert translate.translate(text) == expected
 
 @pytest.mark.parametrize(
     "text, expected", [
@@ -37,9 +35,7 @@ def test_english(text, expected):
     ]
 )
 def test_dutch(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "nl" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
+    assert translate.translate(text, "nl") == expected
 
 @pytest.mark.parametrize(
     "text, expected", [
@@ -56,9 +52,7 @@ def test_dutch(text, expected):
     ]
 )
 def test_german(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "de" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
+    assert translate.translate(text, "de") == expected
 
 @pytest.mark.parametrize(
     "text, expected", [
@@ -75,9 +69,7 @@ def test_german(text, expected):
     ]
 )
 def test_spanish(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "es" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
+    assert translate.translate(text, "es") == expected
 
 @pytest.mark.parametrize(
     "text, expected", [
@@ -94,10 +86,8 @@ def test_spanish(text, expected):
     ]
 )
 def test_portuguese(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "pt" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
-    
+    assert translate.translate(text, "pt") == expected
+
 @pytest.mark.parametrize(
     "text, expected", [
         ("Dit is een test van de vertaalfunctionaliteit in onze applicatie","Questa è una prova di funzionalità di traduzione nella nostra applicazione"),
@@ -113,10 +103,8 @@ def test_portuguese(text, expected):
     ]
 )
 def test_italian(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "it" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
-    
+    assert translate.translate(text, "it") == expected
+
 @pytest.mark.parametrize(
     "text, expected", [
         ("Dit is een test van de vertaalfunctionaliteit in onze applicatie","Ceci est un test de fonctionnalité de traduction dans notre application"),
@@ -132,10 +120,8 @@ def test_italian(text, expected):
     ]
 )
 def test_french(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "fr" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
-    
+    assert translate.translate(text, "fr") == expected
+
 @pytest.mark.parametrize(
     "text, expected", [
         ("Dit is een test van de vertaalfunctionaliteit in onze applicatie","이것은 우리의 응용 프로그램에서 번역 기능의 테스트입니다."),
@@ -151,10 +137,8 @@ def test_french(text, expected):
     ]
 )
 def test_korean(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "ko" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
-    
+    assert translate.translate(text, "ko") == expected
+
 @pytest.mark.parametrize(
     "text, expected", [
         ("Dit is een test van de vertaalfunctionaliteit in onze applicatie","これは私たちのアプリケーションの翻訳機能のテストです。"),
@@ -170,10 +154,8 @@ def test_korean(text, expected):
     ]
 )
 def test_japanese(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "ja" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
-    
+    assert translate.translate(text, "ja") == expected
+
 @pytest.mark.parametrize(
     "text, expected", [
         ("Dit is een test van de vertaalfunctionaliteit in onze applicatie","这是我们申请中的翻译功能的测试"),
@@ -189,10 +171,8 @@ def test_japanese(text, expected):
     ]
 )
 def test_chinese_simplified(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "zh-CN" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
-    
+    assert translate.translate(text, "zh-CN") == expected
+
 @pytest.mark.parametrize(
     "text, expected", [
         ("Dit is een test van de vertaalfunctionaliteit in onze applicatie","यह हमारे आवेदन में अनुवाद कार्यक्षमता का परीक्षण है"),
@@ -208,7 +188,4 @@ def test_chinese_simplified(text, expected):
     ]
 )
 def test_hindi(text, expected):
-    stream = os.popen("python py/translate.py " + "\"" + text + "\" " + "\"" + "hi" + "\"")
-    translate_out = stream.read().strip()
-    assert translate_out == expected
-    
+    assert translate.translate(text, "hi") == expected

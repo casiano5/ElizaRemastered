@@ -3,7 +3,7 @@ import os
 import pytest
 from pathlib import Path
 import shutil
-import os
+import speech
 
 @pytest.mark.parametrize(
     "input", [
@@ -14,6 +14,6 @@ import os
 )
 def test_tts(input):
     try:
-        os.system("python py/speech.py " + "\"" + input + "\" " + "\"en\"")
+        speech.speech(input)
     except Exception as exc:
         pytest.fail(exc, pytrace=True)
