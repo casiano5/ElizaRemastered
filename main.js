@@ -13,7 +13,7 @@ const createWindow = () => {
           contextIsolation: false
         }
     });
-    window.loadFile('src/index.html');
+    window.loadFile('dist/index.html');
 }
 
 app.whenReady().then(() => {

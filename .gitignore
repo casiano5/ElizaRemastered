@@ -135,5 +135,8 @@ dmypy.json
 # Manual TTS Test Files
 test_tts_manual/
 
-# Node Modules
+# Node
 /node_modules
+
+# Build
+/dist
