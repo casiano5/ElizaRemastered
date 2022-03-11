@@ -5,7 +5,7 @@ let eliza;
 
 const loadEliza = () => {
     eliza = child_process.spawn('python',['-i', 'python/eliza.py']);
-    eliza.stdout.on('data',function (data) {
+    eliza.stdout.on('data', (data) => {
         let event = new CustomEvent('elizaResponded', {
             detail: {
                 response: data.toString().replace(/(\r\n|\n|\r)/gm, "")
