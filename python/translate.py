@@ -1,6 +1,3 @@
-''' 
-requires googletrans == 4.0.0rc1
-'''
 from googletrans import Translator
 
 translator = Translator()
