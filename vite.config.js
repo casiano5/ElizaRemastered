@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { dirname } from 'path';
 const path = require('path');
 
 //Develop on windows they said, itll be fun they said
