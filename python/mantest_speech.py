@@ -1,3 +1,4 @@
+# coding=utf-8
 # Test Text to Speech (These are manual, require review in output folder)
 import os
 import pytest
