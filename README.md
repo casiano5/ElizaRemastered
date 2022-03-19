@@ -4,7 +4,7 @@
 ![Test Cases](https://github.com/scasiano/ElizaRemastered/actions/workflows/python-app.yml/badge.svg)
 
 ## Required Dependancies for JS
-[Vite](https://vitejs.dev/)
+[Vite](https://vitejs.dev/)  
 [NodeJS](https://nodejs.org/)
 
 ## Running Instructions
