@@ -83,11 +83,16 @@ def test_spanish(text, expected):
         ("이것은 우리 응용 프로그램의 번역 테스트입니다","Este é o teste de tradução de nossa aplicação"),
         ("これは、アプリケーションの翻訳機能のテストです","Este é um teste da função de tradução de aplicativos"),
         ("这是对我们应用程序中翻译功能的测试","Este é um teste da função de tradução em nosso aplicativo."),
-        ("यह हमारे आवेदन में अनुवाद कार्यक्षमता का परीक्षण है","Este é o teste de funcionalidade de tradução em nossa aplicação"),
     ]
 )
 def test_portuguese(text, expected):
     assert translate.translate(text, "pt") == expected
+
+def test_hindi_potuguese():
+    text = "यह हमारे आवेदन में अनुवाद कार्यक्षमता का परीक्षण है"
+    expected = "Este é o teste de funcionalidade de tradução em nossa aplicação"
+    expected2 = "Este é o teste da funcionalidade de tradução em nossa aplicação"
+    assert translate.translate(text, "pt") == expected or translate.translate(text, "pt") == expected2
 
 @pytest.mark.parametrize(
     "text, expected", [
