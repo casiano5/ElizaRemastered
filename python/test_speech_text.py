@@ -1,3 +1,4 @@
+# coding=utf-8
 # Test Speech to Text
 import pytest
 import speech_text
