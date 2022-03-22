@@ -14,18 +14,27 @@
 </template>
 
 <script>
+    const pyConnector = require("../js/pyConnector");
+    const global = require("../js/globals");
+    global.elizaEvent = document.createElement("eliza-event");
+    global.elizaEvent.addEventListener('elizaResponded', (e) => {
+        messages.value.push({
+            counter: messageCount.value++,
+            sender: "eliza",
+            message: e.detail.response 
+        });
+    });
     const messageCount = ref(0);
     const messages = ref([]);
-
     export default {
         methods: {
-                createNewSentMessage(event){
+            createNewSentMessage(event){
                 messages.value.push({
                     counter: messageCount.value++,
                     sender: "user",
                     message: event.message 
                 });
-                //implement a call to pyConnector.sendEliza() here
+                pyConnector.sendEliza(event.message);
             }
         }
     }
