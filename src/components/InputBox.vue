@@ -4,7 +4,7 @@
 <template>
     <div class="input-group input-group-sm">
         <span class="input-group-text" id='inputGroup-sizing-sm'>Message</span>
-        <input type="text" class="form-control" v-model="message">
+        <input type="text" class="form-control" v-model="message" @keyup.enter="sendMessageToEliza">
         <button type="button" class="btn btn-primary" @click="sendMessageToEliza">Send</button>
     </div>
 </template>
@@ -17,8 +17,7 @@ export default {
                 this.$emit('message-sent' ,{
                     message: this.message
                 });
-                console.log("Event Thrower: " + this.message);
-                this.message="";
+                this.message = "";
                 this.$forceUpdate();
             }
 
@@ -26,6 +25,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-</style>
