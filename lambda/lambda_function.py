@@ -1,9 +1,6 @@
-
-
-
 import logging
 import ask_sdk_core.utils as ask_utils
-import eliza
+import eliza_alexa_front
 
 
 from ask_sdk_core.skill_builder import SkillBuilder
@@ -16,7 +13,7 @@ from ask_sdk_model import Response
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-eliza = eliza.Eliza()
+eliza = eliza_alexa_front.Eliza()
 eliza.load('doctor.txt')
 
 
