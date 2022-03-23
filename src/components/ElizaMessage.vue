@@ -1,9 +1,3 @@
-<script setup>
-    defineProps({
-        msg: String
-    })
-</script>
-
 <template>
     <p class="eliza-tag m-0 ps-3">Eliza</p>
     <div class="eli message">
@@ -12,6 +6,15 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        props: {
+            msg: String
+        }
+    }
+</script>
+
 
 <style>
     body {

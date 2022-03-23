@@ -4,14 +4,14 @@
 ![Test Cases](https://github.com/scasiano/ElizaRemastered/actions/workflows/python-app.yml/badge.svg)
 
 ## Required Dependancies for JS
-[Vite](https://vitejs.dev/)  
-[NodeJS](https://nodejs.org/)
+[Vue CLI 3](https://cli.vuejs.org/)  
+[NodeJS 16](https://nodejs.org/)
 
-## Running Instructions
-`npm run dev` in project root
-or alternatively:
-`npm run build` in project root to build the Vue.js app
-`npm run electron:start` in project root to start the electron instance
+## Dev Running Instructions
+`npm run electron:serve` in project root
+
+## Building Instructions
+`npm run electron:build` in project root
 
 ## Testing instructions
 `pytest` in `/python`

@@ -135,8 +135,30 @@ dmypy.json
 # Manual TTS Test Files
 test_tts_manual/
 
+# Build
+/dist
+
 # Node
 /node_modules
 
-# Build
-/dist
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+#Electron-builder output
+/dist_electron

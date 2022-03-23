@@ -1,9 +1,3 @@
-<script setup>
-    defineProps({
-        msg: String
-    })
-</script>
-
 <template>
     <p class="user-tag m-0 ps-3" style="text-align: right;">User</p>
     <div class="user messages">
@@ -12,6 +6,14 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        props: {
+            msg: String
+        }
+    }
+</script>
 
 <style scoped>
     body {
