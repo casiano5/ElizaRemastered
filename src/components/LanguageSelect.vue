@@ -15,11 +15,9 @@
             changeLanguage(event){
                 global.config.language = event.target.value;
                 global.writeConfig();
-                console.log("Onupdate: " + this.selectedLanguage);
             }
         },
         created(){
-            console.log(JSON.stringify(global.config));
             this.selectedLanguage = global.config.language;
         }
     }
