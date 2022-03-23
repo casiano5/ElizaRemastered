@@ -3,7 +3,7 @@
 
 <template>
     <div class="input-group input-group-sm">
-        <span class="input-group-text" id='inputGroup-sizing-sm'>Message</span>
+        <button type="button" class="btn btn-primary" @click="toggleSpeechToText"><img src="../assets/mic.svg"></button>
         <input type="text" class="form-control" v-model="message" @keyup.enter="sendMessageToEliza">
         <button type="button" class="btn btn-primary" @click="sendMessageToEliza">Send</button>
     </div>

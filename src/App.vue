@@ -1,9 +1,14 @@
 <script setup>
     import ChatWindow from './components/ChatWindow.vue'
+    import NavBar from './components/NavBar.vue';
+    import LanguageSelect from './components/LanguageSelect.vue';
+    import BackgroundColor from './components/BackgroundColor.vue';
 </script>
 
 <template>
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <NavBar/>
+    <BackgroundColor/>
+    <LanguageSelect/>
     <ChatWindow/>
 </template>
 
