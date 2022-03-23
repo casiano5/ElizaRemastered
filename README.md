@@ -8,8 +8,10 @@
 [NodeJS](https://nodejs.org/)
 
 ## Running Instructions
-`npm run build` in project root
-`npm run electron:start` in project root
+`npm run dev` in project root
+or alternatively:
+`npm run build` in project root to build the Vue.js app
+`npm run electron:start` in project root to start the electron instance
 
 ## Testing instructions
 `pytest` in `/python`
