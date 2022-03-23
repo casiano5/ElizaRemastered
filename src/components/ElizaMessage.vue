@@ -8,11 +8,11 @@ defineProps({
 
 <template>
     <p class="eliza-tag fw-bold m-0 ps-3">Eliza</p>
-    <div class="eli message">
-        <div class="message last">
-            ELIZA: {{msg}}
-         </div>
-    </div>
+        <div class="eli message">
+            <div class="message last">
+                ELIZA: {{msg}}
+            </div>
+        </div>
 </template>
 
 <style>
@@ -50,8 +50,9 @@ body {
 }
 
 .eli .message {
+    color: #e2e8f3;
     margin-right: 25%;
-    background-color: #eee;
+    background-color: #0d6efd;
     position: relative;
 }
 
@@ -63,7 +64,7 @@ body {
     left: -7px;
     height: 20px;
     width: 20px;
-    background: #eee;
+    background: #0d6efd;
     border-bottom-right-radius: 15px;
 }
 .eli .message.last:after {
@@ -74,7 +75,7 @@ body {
     left: -10px;
     width: 10px;
     height: 20px;
-    background: white;
+    background: #e2e8f3;
     border-bottom-right-radius: 10px;
 }
 

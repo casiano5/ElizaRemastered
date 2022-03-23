@@ -7,11 +7,12 @@
 </script>
 
 <template>
-    <div class="user messages">
-        <div class="message last">
-            USER: {{msg}}
+    <p class="eliza-tag fw-bold m-0 ps-3">User</p>
+        <div class="user messages">
+            <div class="message last">
+                USER: {{msg}}
+            </div>
         </div>
-    </div>
 </template>
 
 <style scoped>
@@ -42,9 +43,9 @@
     }
 
     .user .message {
-        color: white;
+        color: #636c70;
         margin-left: 25%;
-        background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+        background: #ffffff;
         background-attachment: fixed;
         position: relative;
     }
@@ -57,7 +58,7 @@
         right: -8px;
         height: 20px;
         width: 20px;
-        background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+        background: white;
         background-attachment: fixed;
         border-bottom-left-radius: 15px;
     }
@@ -70,7 +71,7 @@
         right: -10px;
         width: 10px;
         height: 20px;
-        background: white;
+        background: #eceff1;
         border-bottom-left-radius: 10px;
     }
 </style>
