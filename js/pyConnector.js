@@ -1,17 +1,11 @@
 const child_process = require("child_process")
-const global = require('./globals');
 
 let eliza;
 
-const loadEliza = () => {
+const loadEliza = (callback) => {
     eliza = child_process.spawn('python',['-i', 'python/eliza.py']);
     eliza.stdout.on('data', (data) => {
-        let event = new CustomEvent('elizaResponded', {
-            detail: {
-                response: data.toString().replace(/(\r\n|\n|\r)/gm, "")
-            }
-        });
-        global.elizaEvent.dispatchEvent(event);
+        callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
 }
 exports.loadEliza = loadEliza;

@@ -1,8 +1,5 @@
 const fs = require('fs');
 
-let elizaEvent = null;
-exports.elizaEvent = elizaEvent;
-
 let config = {
     "naturalSoundingLanguages": {
         "en": "English", 

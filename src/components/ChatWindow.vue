@@ -22,16 +22,18 @@
 <script>
     const pyConnector = require("../js/pyConnector");
     const global = require("../js/globals");
-    global.elizaEvent = document.createElement("eliza-event");
-    global.elizaEvent.addEventListener('elizaResponded', (e) => {
+
+    pyConnector.loadEliza((response) => {
         messages.value.push({
             counter: messageCount.value++,
             sender: "eliza",
-            message: global.config.language == "en" ? e.detail.response : pyConnector.translate(e.detail.response, global.config.language)
+            message: global.config.language == "en" ? response : pyConnector.translate(response, global.config.language)
         });
     });
+
     const messageCount = ref(0);
     const messages = ref([]);
+    
     export default {
         updated() {
             this.$nextTick(() => this.scrollToEnd());
