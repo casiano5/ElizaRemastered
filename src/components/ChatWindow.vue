@@ -50,11 +50,10 @@
 </script>
 
 <style>
-
-.scrollable {
-                height: 100px;
-                overflow-y: auto;
-                text-align:justify;
-                scroll-behavior: auto;
-            }
+    .scrollable {
+        height: 100px;
+        overflow-y: auto;
+        text-align:justify;
+        scroll-behavior: auto;
+    }
 </style>
