@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-const global = require('../js/globals');
-global.readConfig();
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 createApp(App).mount('#app')

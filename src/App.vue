@@ -1,7 +1,6 @@
 <script setup>
     import ChatWindow from './components/ChatWindow.vue'
     import NavBar from './components/NavBar.vue';
-    import LanguageSelect from './components/LanguageSelect.vue';
 </script>
 
 <template>
