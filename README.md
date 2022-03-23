@@ -8,9 +8,11 @@
 [NodeJS 16](https://nodejs.org/)
 
 ## Dev Running Instructions
+`npm install` in project root  
 `npm run electron:serve` in project root
 
 ## Building Instructions
+`npm install` in project root  
 `npm run electron:build` in project root
 
 ## Testing instructions
