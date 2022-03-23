@@ -2,6 +2,7 @@
     import ElizaMessage from './ElizaMessage.vue';
     import UserMessage from './UserMessage.vue';
     import InputBox from './InputBox.vue';
+    import LanguageSelect from './LanguageSelect.vue';
     import { ref } from 'vue';
 </script>
 
@@ -14,6 +15,8 @@
     </div>
 
     <InputBox @message-sent="createNewSentMessage"/>
+    <LanguageSelect></LanguageSelect>
+
 </template>
 
 <script>
@@ -24,7 +27,7 @@
         messages.value.push({
             counter: messageCount.value++,
             sender: "eliza",
-            message: e.detail.response 
+            message: global.config.language == "en" ? e.detail.response : pyConnector.translate(e.detail.response, global.config.language)
         });
     });
     const messageCount = ref(0);
@@ -38,9 +41,10 @@
                 messages.value.push({
                     counter: messageCount.value++,
                     sender: "user",
-                    message: event.message 
+                    message: event.message,
                 });
-                pyConnector.sendEliza(event.message);              
+
+                pyConnector.sendEliza(global.config.language == "en" ? event.message : pyConnector.translate(event.message, "en"));              
             },
             scrollToEnd(){
                 document.getElementById('all-messages').scrollTo(0, Number.MAX_SAFE_INTEGER);
@@ -51,9 +55,11 @@
 
 <style>
     .scrollable {
-        height: 430px;
+        height: 65vh;
+        width: 20rem;
         overflow-y: auto;
-        text-align:justify;
+        overflow-x: auto;
+        text-align: left;
         scroll-behavior: auto;
     }
 </style>
