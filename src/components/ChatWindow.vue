@@ -30,6 +30,9 @@
     const messageCount = ref(0);
     const messages = ref([]);
     export default {
+        updated() {
+            this.$nextTick(() => this.scrollToEnd());
+        },
         methods: {
             createNewSentMessage(event){
                 messages.value.push({
@@ -39,6 +42,9 @@
                 });
                 pyConnector.sendEliza(event.message);              
             },
+            scrollToEnd(){
+                document.getElementById('all-messages').scrollTo(0, Number.MAX_SAFE_INTEGER);
+            }
         }
     }
 </script>
