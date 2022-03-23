@@ -6,10 +6,13 @@
 </script>
 
 <template>
+<div id="All messages" class="scrollable">
     <div v-for="message in messages" :key="message.counter">
         <UserMessage v-if="message.sender === 'user'" :msg="message.message"/>
         <ElizaMessage v-if="message.sender === 'eliza'" :msg="message.message"/>
     </div>
+</div>
+    
     <InputBox @message-sent="createNewSentMessage"/>
 </template>
 
@@ -34,8 +37,18 @@
                     sender: "user",
                     message: event.message 
                 });
-                pyConnector.sendEliza(event.message);
-            }
+                pyConnector.sendEliza(event.message);              
+            },
         }
     }
 </script>
+
+<style>
+
+.scrollable {
+                height: 100px;
+                overflow-y: auto;
+                text-align:justify;
+                scroll-behavior: auto;
+            }
+</style>
