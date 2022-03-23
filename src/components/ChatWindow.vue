@@ -6,7 +6,7 @@
 </script>
 
 <template>
-<div id="All messages" class="scrollable">
+<div id="all-messages" class="scrollable">
     <div v-for="message in messages" :key="message.counter">
         <UserMessage v-if="message.sender === 'user'" :msg="message.message"/>
         <ElizaMessage v-if="message.sender === 'eliza'" :msg="message.message"/>
