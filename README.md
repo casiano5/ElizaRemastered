@@ -1,24 +1,27 @@
-# eliza-remastered
+# Eliza chatbot in Python with Vue.js and Electron.js
 
-## Project setup
-```
-npm install
-```
+## Automated Test Results
+![Test Cases](https://github.com/scasiano/ElizaRemastered/actions/workflows/python-app.yml/badge.svg)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Required Dependancies for JS
+[Vue CLI 3](https://cli.vuejs.org/)  
+[NodeJS 16](https://nodejs.org/)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Dev Running Instructions
+`npm run electron:serve` in project root
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Building Instructions
+`npm run electron:build` in project root
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Testing instructions
+`pytest` in `/python`
+
+## Authors
+Shane Casiano  
+Noah Garman  
+David Hutton  
+Jurique Varsovie  
+Tian Zhao
+
+## Project Base
+[wadetb/eliza](https://github.com/wadetb/eliza)
