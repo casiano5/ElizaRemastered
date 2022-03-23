@@ -6,7 +6,6 @@
 
 <template>
     <NavBar/>
-    <LanguageSelect/>
     <ChatWindow/>
 </template>
 

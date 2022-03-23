@@ -5,12 +5,12 @@
 </script>
 
 <template>
-    <p class="eliza-tag fw-bold m-0 ps-3">User</p>
-        <div class="user messages">
-            <div class="message last">
-                USER: {{msg}}
-            </div>
+    <p class="user-tag m-0 ps-3" style="text-align: right;">User</p>
+    <div class="user messages">
+        <div class="message last">
+            {{msg}}
         </div>
+    </div>
 </template>
 
 <style scoped>
@@ -22,7 +22,7 @@
     }
 
     .messages {
-        margin-top: 30px;
+        margin-top: -5px;
         display: flex;
         flex-direction: column;
     }

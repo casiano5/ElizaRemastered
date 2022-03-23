@@ -5,12 +5,12 @@
 </script>
 
 <template>
-    <p class="eliza-tag fw-bold m-0 ps-3">Eliza</p>
-        <div class="eli message">
-            <div class="message last">
-                ELIZA: {{msg}}
-            </div>
+    <p class="eliza-tag m-0 ps-3">Eliza</p>
+    <div class="eli message">
+        <div class="message last">
+            {{msg}}
         </div>
+    </div>
 </template>
 
 <style>
@@ -38,7 +38,7 @@
     .message {
         border-radius: 20px;
         padding: 8px 15px;
-        margin-top: 5px;
+        margin-top: -5px;
         margin-bottom: 5px;
         display: inline-block;
     }
@@ -74,12 +74,11 @@
         left: -10px;
         width: 10px;
         height: 20px;
-        background: #e2e8f3;
+        background: #eceff1;
         border-bottom-right-radius: 10px;
     }
 
     .eliza-tag{
         text-align: left;
-        font-size: smaller;
     }
 </style>

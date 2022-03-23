@@ -51,7 +51,7 @@
 
 <style>
     .scrollable {
-        height: 100px;
+        height: 430px;
         overflow-y: auto;
         text-align:justify;
         scroll-behavior: auto;
