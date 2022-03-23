@@ -1,8 +1,4 @@
 const { app, BrowserWindow } = require('electron');
-const global = require('./js/globals');
-
-//read config on startup (if exists)
-global.readConfig();
 
 const createWindow = () => {
     const window = new BrowserWindow({

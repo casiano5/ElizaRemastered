@@ -1,9 +1,7 @@
 <script setup>
-import { ref } from 'vue'
-
-defineProps({
-    msg: String
-})
+    defineProps({
+        msg: String
+    })
 </script>
 
 <template>
@@ -16,71 +14,72 @@ defineProps({
 </template>
 
 <style>
-body {
-    font-family: helvetica;
-    display: flex ;
-    flex-direction: column;
-    align-items: center;
-}
+    body {
+        font-family: helvetica;
+        display: flex ;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.chat {
-    width: 300px;
-    border: solid 1px #EEE;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
+    .chat {
+        width: 300px;
+        border: solid 1px #EEE;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
 
-.messages {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-}
+    .messages {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+    }
 
-.message {
-    border-radius: 20px;
-    padding: 8px 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: inline-block;
-}
+    .message {
+        border-radius: 20px;
+        padding: 8px 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
 
-.eli {
-    align-items: flex-start;
-}
+    .eli {
+        align-items: flex-start;
+    }
 
-.eli .message {
-    color: #e2e8f3;
-    margin-right: 25%;
-    background-color: #0d6efd;
-    position: relative;
-}
+    .eli .message {
+        color: #e2e8f3;
+        margin-right: 25%;
+        background-color: #0d6efd;
+        position: relative;
+    }
 
-.eli .message.last:before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    left: -7px;
-    height: 20px;
-    width: 20px;
-    background: #0d6efd;
-    border-bottom-right-radius: 15px;
-}
-.eli .message.last:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: -10px;
-    width: 10px;
-    height: 20px;
-    background: #e2e8f3;
-    border-bottom-right-radius: 10px;
-}
+    .eli .message.last:before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        bottom: 0;
+        left: -7px;
+        height: 20px;
+        width: 20px;
+        background: #0d6efd;
+        border-bottom-right-radius: 15px;
+    }
 
-.eliza-tag{
-    text-align: left;
-    font-size: smaller;
-}
+    .eli .message.last:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: -10px;
+        width: 10px;
+        height: 20px;
+        background: #e2e8f3;
+        border-bottom-right-radius: 10px;
+    }
+
+    .eliza-tag{
+        text-align: left;
+        font-size: smaller;
+    }
 </style>

@@ -10,18 +10,18 @@
 </template>
 
 <script>
-export default {
-    methods: {
-        sendMessageToEliza(){
-            if (this.message != ""){
-                this.$emit('message-sent' ,{
-                    message: this.message
-                });
-                this.message = "";
-                this.$forceUpdate();
-            }
+    export default {
+        methods: {
+            sendMessageToEliza(){
+                if (this.message != ""){
+                    this.$emit('message-sent' ,{
+                        message: this.message
+                    });
+                    this.message = "";
+                    this.$forceUpdate();
+                }
 
-        }
-    },
-}
+            }
+        },
+    }
 </script>
