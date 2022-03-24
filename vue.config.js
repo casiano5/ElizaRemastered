@@ -32,6 +32,8 @@ module.exports = defineConfig({
         dmg: {
           contents: [
             {
+              x: 0,
+              y: 0,
               path: "/Applications",
               name: 'Eliza Remastered'
             }
