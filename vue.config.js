@@ -28,6 +28,12 @@ module.exports = defineConfig({
           license: "LICENSE",
           oneClick: false,
           allowToChangeInstallationDirectory: true
+        },
+        dmg: {
+          contents: {
+            path: "/Applications",
+            name: 'Eliza Remastered'
+          }
         }
       }
     }

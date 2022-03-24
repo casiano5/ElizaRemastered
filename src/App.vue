@@ -18,6 +18,6 @@
         margin-top: 60px;
     }
     body{
-        background:#eceff1;
+        background:#eceff1 !important;
     }
 </style>
