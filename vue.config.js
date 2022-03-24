@@ -30,10 +30,12 @@ module.exports = defineConfig({
           allowToChangeInstallationDirectory: true
         },
         dmg: {
-          contents: {
-            path: "/Applications",
-            name: 'Eliza Remastered'
-          }
+          contents: [
+            {
+              path: "/Applications",
+              name: 'Eliza Remastered'
+            }
+          ]
         }
       }
     }
