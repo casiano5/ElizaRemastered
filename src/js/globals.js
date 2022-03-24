@@ -23,14 +23,14 @@ let config = {
 exports.config = config;
 
 const readConfig = () => {
-    if (fs.existsSync('assets/eliconfig.json')) config = JSON.parse(fs.readFileSync('assets/eliconfig.json'));
+    if (fs.existsSync('src/assets/eliconfig.json')) config = JSON.parse(fs.readFileSync('src/assets/eliconfig.json'));
     else {writeConfig();}
     exports.config = config;
 }
 exports.readConfig = readConfig; 
 
 const writeConfig = () => {
-    fs.writeFileSync('assets/eliconfig.json', JSON.stringify(config));
+    fs.writeFileSync('src/assets/eliconfig.json', JSON.stringify(config));
     readConfig();
 }
 exports.writeConfig = writeConfig;
