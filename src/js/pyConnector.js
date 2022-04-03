@@ -12,7 +12,8 @@ const loadEliza = (callback) => {
 exports.loadEliza = loadEliza;
 
 const loadElizaMacOS = (callback) => {
-    eliza = child_process.spawn('python',['-i', global.basePathMacOS + 'python/eliza.py']);
+    spawnPath = global.basePathMacOS + 'python/eliza.py'
+    eliza = child_process.spawn('python',['-i', spawnPath]);
     eliza.stdout.on('data', (data) => {
         callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
@@ -35,7 +36,7 @@ const translate = (text, language = "en") => {
 exports.translate = translate;
 
 const translateMacOS = (text, language = "en") => {
-    return child_process.execSync('python -X utf8 ' + global.basePathMacOS + 'python/runnerTranslate.py "' + text + '" "' + language + '" ').toString().replace(/(\r\n|\n|\r)/gm, "");
+    return child_process.execSync('python3 -X utf8 ' + global.basePathMacOS + 'python/runnerTranslate.py "' + text + '" "' + language + '" ').toString().replace(/(\r\n|\n|\r)/gm, "");
 }
 if (global.basePathMacOS != undefined) exports.translate = translateMacOS;
 
@@ -45,7 +46,7 @@ const speechToText = (file="empty", language = "en") => {
 exports.speechToText = speechToText;
 
 const speechToTextMacOS = (file="empty", language = "en") => {
-    return child_process.execSync('python ' + global.basePathMacOS + 'python/runnerSpeechToText.py "' + file + '" "' + language + '" ').toString().replace(/(\r\n|\n|\r)/gm, "");
+    return child_process.execSync('python3 ' + global.basePathMacOS + 'python/runnerSpeechToText.py "' + file + '" "' + language + '" ').toString().replace(/(\r\n|\n|\r)/gm, "");
 }
 if (global.basePathMacOS != undefined) exports.speechToText = speechToTextMacOS;
 
@@ -55,6 +56,6 @@ const textToSpeech = (input, language = "en") => {
 exports.textToSpeech = textToSpeech;
 
 const textToSpeechMacOS = (input, language = "en") => {
-    child_process.execSync('python ' + global.basePathMacOS + 'python/runnerTestToSpeech.py "' + input + '" "' + language + '" ');
+    child_process.execSync('python3 ' + global.basePathMacOS + 'python/runnerTestToSpeech.py "' + input + '" "' + language + '" ');
 }
 if (global.basePathMacOS != undefined) exports.textToSpeech = textToSpeechMacOS;
