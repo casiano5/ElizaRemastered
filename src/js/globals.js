@@ -22,6 +22,16 @@ let config = {
 };
 exports.config = config;
 
+let basePathMacOS = undefined;
+exports.basePathMacOS = basePathMacOS;
+
+if (process.platform == 'darwin'){
+    if (process.env.NODE_ENV === 'production'){
+        basePathMacOS = require('electron-root-path').rootPath;
+        exports.basePathMacOS = basePathMacOS;
+    }
+}
+
 const readConfig = () => {
     if (fs.existsSync('src/assets/eliconfig.json')) config = JSON.parse(fs.readFileSync('src/assets/eliconfig.json'));
     else {writeConfig();}

@@ -1,4 +1,5 @@
 const child_process = require("child_process")
+const global = require('./globals');
 
 let eliza;
 
@@ -7,6 +8,7 @@ const loadEliza = (callback) => {
     eliza.stdout.on('data', (data) => {
         callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
+    console.log("MacOS Path: " + global.basePathMacOS);
 }
 exports.loadEliza = loadEliza;
 
