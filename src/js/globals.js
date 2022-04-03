@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 let config = {
     "naturalSoundingLanguages": {
@@ -27,7 +28,7 @@ exports.basePathMacOS = basePathMacOS;
 
 if (process.platform == 'darwin'){
     if (process.env.NODE_ENV === 'production'){
-        basePathMacOS = require('electron-root-path').rootPath;
+        basePathMacOS = path.resolve(path.join(__dirname, "..", "..", ".."));
         exports.basePathMacOS = basePathMacOS;
     }
 }
