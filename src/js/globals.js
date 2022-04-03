@@ -28,7 +28,7 @@ exports.basePathMacOS = basePathMacOS;
 
 if (process.platform == 'darwin'){
     if (process.env.NODE_ENV === 'production'){
-        basePathMacOS = path.resolve(path.join(__dirname, "..", "..", ".."));
+        basePathMacOS = path.resolve(path.join(__dirname, "..", ".."));
         exports.basePathMacOS = basePathMacOS + '/';
     }
 }
