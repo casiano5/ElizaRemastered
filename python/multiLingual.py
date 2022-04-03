@@ -12,30 +12,16 @@ dic = ('chinese', 'zh-cn', 'dutch', 'nl', 'english', 'en',
        'french', 'fr', 'german', 'de', 'italian', 'it', 'japanese', 'ja',
        'korean', 'ko', 'portuguese', 'pt', 'spanish', 'es')
 
-"""
-# capture voice through mic
-def takecommand():
-    r = sr.Recognizer()
-    with sr.Microphone as source:
-        r.pause_threshold = 1
-        audo = r.listen(source)
 
-    try:
-        query = r.recognize_google(audo, language='en-US')
-
-    except Exception as e:
-        return "None"
-    return query
-
-"""
 # input from user
 query = STT()
 while (query == "None"):
     query = STT()
 
 # enter the language to translate say "spanish", ect
-
-
+# we could take this whole section out since Dr file is in english, or use it to output audio and text
+# back in the original language used
+""""
 def destination_language():
     print("enter language")
     # input destination language
@@ -48,11 +34,12 @@ def destination_language():
 
 
 to_lang = destination_language()
-
+"""
+to_lang = "english"
 # mapping language with code
 while (to_lang not in dic):
     print("try another language")
-    to_lang = destination_language()
+    #to_lang = destination_language()
 
 to_lang = dic[dic.index(to_lang)+1]
 
@@ -61,6 +48,7 @@ translator = Translator()
 
 # translate from src to destination
 text_to_translate = translator.translate(query, dest=to_lang)
+# text is translated and can be fed into eliza
 text = text_to_translate.text
 
 # using google text to speech method to input translated speech to destinatin language
@@ -72,6 +60,7 @@ mp3_fp = BytesIO()
 speak.write_to_fp(mp3_fp)
 mp3_fp.seek(0)
 response = AudioSegment.from_file(mp3_fp, format="mp3")
-play(response)
 
-print(text)
+# play(response)  # audio out
+
+print(text)  # text out
