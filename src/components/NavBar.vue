@@ -3,6 +3,7 @@
 
 <template>
     <nav class="vertical-nav bg-light" id="sidebar">  
+        <button type="button" class="btn btn-primary" ><img src="../assets/setting.svg"></button>    
     </nav>
 </template>
 
