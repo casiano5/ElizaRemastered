@@ -5,6 +5,7 @@
 </script>
 
 <template>
+
     <NavBar @show-settings-modal="showSettingsModal"/>
     <ChatWindow/>
     <SettingsModal ref='settingsModal'/>

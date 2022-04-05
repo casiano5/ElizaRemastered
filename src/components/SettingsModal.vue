@@ -37,10 +37,3 @@
         }
     };
 </script>
-
-<style>
-    /* backdrop broken because modal not declared in body, VDOM doesn't help here. */
-    .modal-backdrop{
-        display: none;
-    }
-</style>
