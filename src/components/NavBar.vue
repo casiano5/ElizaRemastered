@@ -1,24 +1,15 @@
 <script setup>
-    import SettingsModal from './SettingsModal.vue';
 </script>
 
 <template>
     <nav class="vertical-nav bg-light" id="sidebar">  
-        <button type="button" class="btn btn-primary" @click="showSettingsModal">
+        <button type="button" class="btn btn-primary" @click="this.$emit('show-settings-modal')">
             <img src="../assets/setting.svg">
         </button>
-        <SettingsModal ref='settingsModal'/>
     </nav>
 </template>
 
 <script>
-    export default {
-        methods: {
-            showSettingsModal(){
-                this.$refs.settingsModal.showModal();
-            }
-        }
-    };
 </script>
 
 
