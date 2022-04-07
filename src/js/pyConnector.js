@@ -4,7 +4,7 @@ const global = require('./globals');
 let eliza;
 
 const loadEliza = (callback) => {
-    eliza = child_process.spawn('python',['-i', 'python/eliza.py']);
+    eliza = child_process.spawn('python', ['-i', 'python/eliza.py']);
     eliza.stdout.on('data', (data) => {
         callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
@@ -15,8 +15,7 @@ const loadEliza = (callback) => {
 exports.loadEliza = loadEliza;
 
 const loadElizaMacOS = (callback) => {
-    let spawnPath = global.basePathMacOS + 'python/eliza.py'
-    eliza = child_process.spawn('python3',['-i', spawnPath]);
+    eliza = child_process.spawn('python3', ['-i', "eliza.py"], {cwd: global.basePathMacOS + "python"});
     eliza.stdout.on('data', (data) => {
         callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
