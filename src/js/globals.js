@@ -29,7 +29,7 @@ exports.basePathMacOS = basePathMacOS;
 if (process.platform == 'darwin'){
     if (process.env.NODE_ENV === 'production'){
         basePathMacOS = path.resolve(path.join(__dirname, "..", ".."));
-        exports.basePathMacOS = basePathMacOS + '/';
+        exports.basePathMacOS = basePathMacOS;
     }
 }
 
@@ -49,14 +49,14 @@ exports.writeConfig = writeConfig;
 
 //MacOS Production Functions
 const readConfigMacOS = () => {
-    if (fs.existsSync(basePathMacOS + 'res/eliconfig.json')) config = JSON.parse(fs.readFileSync('res/eliconfig.json'));
+    if (fs.existsSync(basePathMacOS + '/res/eliconfig.json')) config = JSON.parse(fs.readFileSync(basePathMacOS + 'res/eliconfig.json'));
     else {writeConfig();}
     exports.config = config;
 }
-if (global.basePathMacOS != undefined) exports.readConfig = readConfigMacOS;
+if (basePathMacOS != undefined) exports.readConfig = readConfigMacOS;
 
 const writeConfigMacOS = () => {
-    fs.writeFileSync(basePathMacOS + 'res/eliconfig.json', JSON.stringify(config));
+    fs.writeFileSync(basePathMacOS + '/res/eliconfig.json', JSON.stringify(config));
     readConfig();
 }
-if (global.basePathMacOS != undefined) exports.writeConfig = writeConfigMacOS;
+if (basePathMacOS != undefined) exports.writeConfig = writeConfigMacOS;

@@ -53,12 +53,12 @@ const loadElizaMacOS = (callback) => {
 if (global.basePathMacOS != undefined) exports.loadEliza = loadElizaMacOS;
 
 const translateMacOS = (text, language = "en") => {
-    return child_process.execSync('python3 -X utf8 ' + global.basePathMacOS + 'python/runnerTranslate.py "' + text + '" "' + language + '" ').toString().replace(/(\r\n|\n|\r)/gm, "");
+    return child_process.execSync('python3 -X utf8 python/runnerTranslate.py "' + text + '" "' + language + '" ', {cwd: global.basePathMacOS}).toString().replace(/(\r\n|\n|\r)/gm, "");
 }
 if (global.basePathMacOS != undefined) exports.translate = translateMacOS;
 
 const speechToTextMacOS = (file="empty", language = "en") => {
-    return child_process.execSync('python3 ' + global.basePathMacOS + 'python/runnerSpeechToText.py "' + file + '" "' + language + '" ').toString().replace(/(\r\n|\n|\r)/gm, "");
+    return child_process.execSync('python3 python/runnerSpeechToText.py "' + file + '" "' + language + '" ', {cwd: global.basePathMacOS}).toString().replace(/(\r\n|\n|\r)/gm, "");
 }
 if (global.basePathMacOS != undefined) exports.speechToText = speechToTextMacOS;
 
