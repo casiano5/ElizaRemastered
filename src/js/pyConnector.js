@@ -8,7 +8,7 @@ if (!global.config.pythonLibsInstalled) {
     //MacOS
     if (global.basePathMacOS != undefined) child_process.exec("pip3 install -r " + path.join(global.basePathMacOS, "requirements.txt"));
     //Everyone Else
-    else {child_process.exec("pip install -r requirements.txt");}
+    else if (process.env.NODE_ENV === 'production') child_process.exec("pip install -r requirements.txt");
 }
 
 //Python files to function, default case (Windows, dev builds <npm run electron:serve>)
