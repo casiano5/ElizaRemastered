@@ -5,7 +5,6 @@
 </script>
 
 <template>
-
     <SettingsButton @show-settings-modal="showSettingsModal"/>
     <ChatWindow/>
     <SettingsModal ref='settingsModal'/>
@@ -19,7 +18,7 @@
         text-align: center;
         color: #2c3e50;
         margin-top: 20px;
-        margin-left: 3rem;
+        margin-left: 0rem;
         width: 90%;
     }
     body{

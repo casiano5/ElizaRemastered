@@ -7,21 +7,42 @@
           <h5 class="modal-title">Settings</h5>
           <button type="button" class="btn-close" @click="modal.hide()" aria-label="Close"></button>
         </div>
+
         <div class="modal-body">
-            <TextToSpeechButton></TextToSpeechButton>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="modal.hide()">Close</button>
-          <button type="button" class="btn btn-primary" @click="saveSettings">Save</button>
+          <div style="position: relative;">
+            <div style="position:absolute;left: 20px">
+              <LanguageSelect></LanguageSelect>
+            </div>
+            <div style="position:absolute;left: 180px">
+              <DarkMode></DarkMode>
+            </div>
+            <div style="position:absolute;left: 300px">
+              <TextToSpeechButton></TextToSpeechButton>
+            </div>
+          </div>  
+
         </div>
       </div>
     </div>
   </div>
 </template>
 
+<style scoped>
+  .modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 3rem;
+}
+.button.btn.btn-primary.a {
+    padding: .375rem .6rem;
+}
+</style>
+
 <script>
     import { Modal } from 'bootstrap';
     import TextToSpeechButton from "./TextToSpeechButton.vue";
+    import LanguageSelect from "./LanguageSelect.vue";
+    import DarkMode from "./DarkMode.vue";
     export default {
     data: () => ({
         modal: null
@@ -37,6 +58,6 @@
             //Save and reload eliconfig
         },
     },
-    components: { TextToSpeechButton }
+    components: { TextToSpeechButton, LanguageSelect, DarkMode }
 };
 </script>
