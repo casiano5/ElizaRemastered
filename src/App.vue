@@ -1,12 +1,12 @@
 <script setup>
     import ChatWindow from './components/ChatWindow.vue'
-    import NavBar from './components/NavBar.vue';
+    import SettingsButton from './components/SettingsButton.vue';
     import SettingsModal from './components/SettingsModal.vue';
 </script>
 
 <template>
 
-    <NavBar @show-settings-modal="showSettingsModal"/>
+    <SettingsButton @show-settings-modal="showSettingsModal"/>
     <ChatWindow/>
     <SettingsModal ref='settingsModal'/>
 </template>
@@ -18,7 +18,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        margin-top: 60px;
+        margin-top: 20px;
         margin-left: 3rem;
         width: 90%;
     }
