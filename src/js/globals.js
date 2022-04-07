@@ -49,14 +49,14 @@ exports.writeConfig = writeConfig;
 
 //MacOS Production Functions
 const readConfigMacOS = () => {
-    if (fs.existsSync(basePathMacOS + '/res/eliconfig.json')) config = JSON.parse(fs.readFileSync(basePathMacOS + '/res/eliconfig.json'));
+    if (fs.existsSync(path.join(basePathMacOS, 'res', 'eliconfig.json'))) config = JSON.parse(fs.readFileSync(path.join(basePathMacOS, 'res', 'eliconfig.json')));
     else {writeConfig();}
     exports.config = config;
 }
 if (basePathMacOS != undefined) exports.readConfig = readConfigMacOS;
 
 const writeConfigMacOS = () => {
-    fs.writeFileSync(basePathMacOS + '/res/eliconfig.json', JSON.stringify(config));
+    fs.writeFileSync(path.join(basePathMacOS, 'res', 'eliconfig.json'), JSON.stringify(config));
     readConfig();
 }
 if (basePathMacOS != undefined) exports.writeConfig = writeConfigMacOS;
