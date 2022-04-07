@@ -8,6 +8,9 @@ const loadEliza = (callback) => {
     eliza.stdout.on('data', (data) => {
         callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
+    eliza.stderr.on('data', (data) => {
+        console.error(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
+    })
 }
 exports.loadEliza = loadEliza;
 
@@ -17,6 +20,9 @@ const loadElizaMacOS = (callback) => {
     eliza.stdout.on('data', (data) => {
         callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
+    eliza.stderr.on('data', (data) => {
+        console.error(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
+    })
 }
 if (global.basePathMacOS != undefined) exports.loadEliza = loadElizaMacOS;
 
