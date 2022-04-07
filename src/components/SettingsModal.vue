@@ -1,3 +1,4 @@
+
 <template>
   <div class="modal fade" ref="settingsModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
@@ -7,7 +8,7 @@
           <button type="button" class="btn-close" @click="modal.hide()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            This is where we would put individual settings that can be changed
+            <TextToSpeechButton></TextToSpeechButton>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" @click="modal.hide()">Close</button>
@@ -20,20 +21,22 @@
 
 <script>
     import { Modal } from 'bootstrap';
+    import TextToSpeechButton from "./TextToSpeechButton.vue";
     export default {
-        data: () => ({
-            modal: null
-        }),
-        mounted(){
-            this.modal = new Modal(this.$refs.settingsModal)
+    data: () => ({
+        modal: null
+    }),
+    mounted() {
+        this.modal = new Modal(this.$refs.settingsModal);
+    },
+    methods: {
+        showModal() {
+            this.modal.show();
         },
-        methods: {
-            showModal(){
-                this.modal.show();
-            },
-            saveSettings(){
-                //Save and reload eliconfig
-            },
-        }
-    };
+        saveSettings() {
+            //Save and reload eliconfig
+        },
+    },
+    components: { TextToSpeechButton }
+};
 </script>
