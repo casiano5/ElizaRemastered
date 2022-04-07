@@ -19,7 +19,8 @@ let config = {
     "speechToTextEnable": false, 
     "speakerIconPath": "disSpeaker_Icon.png", 
     "micIconPath": "disMic.png", 
-    "language": "en"
+    "language": "en",
+    "pythonLibsInstalled": false
 };
 exports.config = config;
 
