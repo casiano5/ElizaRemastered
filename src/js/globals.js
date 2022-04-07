@@ -29,7 +29,7 @@ exports.basePathMacOS = basePathMacOS;
 if (process.platform == 'darwin'){
     if (process.env.NODE_ENV === 'production'){
         basePathMacOS = path.resolve(path.join(__dirname, "..", ".."));
-        exports.basePathMacOS = basePathMacOS.replace(/ /g, "\\ ") + '/';
+        exports.basePathMacOS = basePathMacOS + '/';
     }
 }
 

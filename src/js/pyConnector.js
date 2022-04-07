@@ -15,7 +15,7 @@ const loadEliza = (callback) => {
 exports.loadEliza = loadEliza;
 
 const loadElizaMacOS = (callback) => {
-    eliza = child_process.spawn('python3', ['-i', "eliza.py"], {cwd: global.basePathMacOS + "python"});
+    eliza = child_process.spawn('python3', ['-i', "python/eliza.py"], {cwd: global.basePathMacOS});
     eliza.stdout.on('data', (data) => {
         callback(data.toString().replace(/(\r\n|\n|\r)/gm, ""));
     });
