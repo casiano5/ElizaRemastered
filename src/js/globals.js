@@ -33,15 +33,30 @@ if (process.platform == 'darwin'){
     }
 }
 
+//Config functions, default case (Windows, dev builds <npm run electron:serve>)
 const readConfig = () => {
-    if (fs.existsSync('src/assets/eliconfig.json')) config = JSON.parse(fs.readFileSync('src/assets/eliconfig.json'));
+    if (fs.existsSync('res/eliconfig.json')) config = JSON.parse(fs.readFileSync('res/eliconfig.json'));
     else {writeConfig();}
     exports.config = config;
 }
 exports.readConfig = readConfig; 
 
 const writeConfig = () => {
-    fs.writeFileSync('src/assets/eliconfig.json', JSON.stringify(config));
+    fs.writeFileSync('res/eliconfig.json', JSON.stringify(config));
     readConfig();
 }
 exports.writeConfig = writeConfig;
+
+//MacOS Production Functions
+const readConfigMacOS = () => {
+    if (fs.existsSync(basePathMacOS + 'res/eliconfig.json')) config = JSON.parse(fs.readFileSync('res/eliconfig.json'));
+    else {writeConfig();}
+    exports.config = config;
+}
+if (global.basePathMacOS != undefined) exports.readConfig = readConfigMacOS;
+
+const writeConfigMacOS = () => {
+    fs.writeFileSync(basePathMacOS + 'res/eliconfig.json', JSON.stringify(config));
+    readConfig();
+}
+if (global.basePathMacOS != undefined) exports.writeConfig = writeConfigMacOS;

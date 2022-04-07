@@ -14,6 +14,11 @@ module.exports = defineConfig({
             "from": "python",
             "to": "python",
             "filter": ["**/*"]
+          },
+          {
+            "from": "res",
+            "to": "res",
+            "filter": ["**/*"]
           }
         ],
         appId: "eliza-remastered",
