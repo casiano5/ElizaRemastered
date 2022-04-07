@@ -3,8 +3,15 @@
 
 <template>
     <nav class="vertical-nav bg-light" id="sidebar">  
+        <button type="button" class="btn btn-primary" @click="this.$emit('show-settings-modal')">
+            <img src="../assets/setting.svg">
+        </button>
     </nav>
 </template>
+
+<script>
+</script>
+
 
 <style>
     .vertical-nav {

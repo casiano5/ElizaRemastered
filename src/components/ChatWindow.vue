@@ -57,8 +57,8 @@
 
 <style>
     .scrollable {
-        height: 65vh;
-        width: 20rem;
+        height: 80vh;
+        width: 100%;
         overflow-y: auto;
         overflow-x: auto;
         text-align: left;
