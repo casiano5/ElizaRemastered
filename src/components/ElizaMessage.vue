@@ -8,10 +8,11 @@
 </template>
 
 <script>
+    require("../js/globals")
     export default {
         mounted(){
             setTimeout(() => {
-                require('../js/pyConnector').textToSpeech("hello")
+                require('../js/pyConnector').textToSpeech(this.msg, require("../js/globals").config.language)
             }, 10);
         },
         props: {
