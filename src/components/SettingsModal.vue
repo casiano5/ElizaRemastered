@@ -10,13 +10,13 @@
 
         <div class="modal-body">
           <div style="position: relative;">
-            <div style="position:absolute;left: 20px">
+            <div style="position:absolute;left: 20px;top 20px">
               <LanguageSelect></LanguageSelect>
             </div>
-            <div style="position:absolute;left: 180px">
+            <div style="position:absolute;left: 45%">
               <DarkMode></DarkMode>
             </div>
-            <div style="position:absolute;left: 300px">
+            <div style="position:absolute;left: 75%">
               <TextToSpeechButton></TextToSpeechButton>
             </div>
           </div>  
@@ -33,9 +33,7 @@
     flex: 1 1 auto;
     padding: 3rem;
 }
-.button.btn.btn-primary.a {
-    padding: .375rem .6rem;
-}
+
 </style>
 
 <script>

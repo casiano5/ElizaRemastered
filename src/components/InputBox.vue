@@ -35,3 +35,10 @@
         },
     }
 </script>
+
+<style>
+    button.btn.btn-primary {
+        font-size: 1rem;
+        padding: 0.375rem 0.75rem;
+}
+</style>
