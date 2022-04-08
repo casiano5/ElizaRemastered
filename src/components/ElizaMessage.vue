@@ -1,6 +1,6 @@
 <template>
     <p class="eliza-tag m-0 ps-3">Eliza</p>
-    <div class="eli message">
+    <div class="eli messages">
         <div class="message last">
             {{msg}}
         </div>
@@ -8,12 +8,14 @@
 </template>
 
 <script>
-    require("../js/globals")
+    const global = require("../js/globals")
     export default {
         mounted(){
+            if(global.config.textToSpeechEnable){
             setTimeout(() => {
                 require('../js/pyConnector').textToSpeech(this.msg, require("../js/globals").config.language)
-            }, 10);
+            }, 20)
+            }
         },
         props: {
             msg: String
@@ -39,7 +41,7 @@
     }
 
     .messages {
-        margin-top: 30px;
+        margin-top: 5px;
         display: flex;
         flex-direction: column;
     }
@@ -72,6 +74,7 @@
         height: 20px;
         width: 20px;
         background: #0d6efd;
+        background-attachment: fixed;
         border-bottom-right-radius: 15px;
     }
 
