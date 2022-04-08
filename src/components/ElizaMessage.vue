@@ -9,6 +9,11 @@
 
 <script>
     export default {
+        mounted(){
+            setTimeout(() => {
+                require('../js/pyConnector').textToSpeech("hello")
+            }, 10);
+        },
         props: {
             msg: String
         }
