@@ -1,5 +1,5 @@
 <template>
-    <p class="user-tag m-0 ps-3" style="text-align: right;">User</p>
+    <p class="user-tag m-0 ps-3" style="text-align: right; padding-right: 5px;">User</p>
     <div class="user messages">
         <div class="message last">
             {{msg}}

@@ -20,7 +20,8 @@ let config = {
     "speakerIconPath": "disSpeaker_Icon.png", 
     "micIconPath": "disMic.png", 
     "language": "en",
-    "pythonLibsInstalled": false
+    "pythonLibsInstalled": false,
+    "darkModeEnable": false,
 };
 exports.config = config;
 

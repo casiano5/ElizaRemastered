@@ -2,7 +2,6 @@
     import ElizaMessage from './ElizaMessage.vue';
     import UserMessage from './UserMessage.vue';
     import InputBox from './InputBox.vue';
-    import LanguageSelect from './LanguageSelect.vue';
     import { ref } from 'vue';
 </script>
 
@@ -15,7 +14,6 @@
     </div>
 
     <InputBox @message-sent="createNewSentMessage"/>
-    <LanguageSelect></LanguageSelect>
 
 </template>
 
