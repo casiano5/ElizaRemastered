@@ -7,7 +7,7 @@
 
 <template>
     <div class="app" :class="mode">
-        <DarkMode @change-theme=showSettingsModal></DarkMode>
+        <DarkMode @change-theme=changeTheme></DarkMode>
         <SettingsButton @show-settings-modal="showSettingsModal" @change-theme="changeTheme"/>
         <ChatWindow/>
         <SettingsModal ref='settingsModal'/>
@@ -48,7 +48,12 @@
                 this.$refs.settingsModal.showModal();
             },
             changeTheme(){
-                //change theme!
+                if(this.mode==="dark"){
+                    this.mode="light";
+                }
+                else{
+                    this.mode="dark";
+                }
             }
         },
         data () {
