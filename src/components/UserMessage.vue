@@ -1,5 +1,5 @@
 <template>
-    <p class="user-tag m-0 ps-3" style="text-align: right; padding-right: 5px;">User</p>
+    <p class="user-tag m-0 ps-3" style="text-align: right; padding-right: 4%;">User</p>
     <div class="user messages">
         <div class="message last">
             {{msg}}
@@ -27,6 +27,7 @@
         margin-top: -5px;
         display: flex;
         flex-direction: column;
+        margin-right: 3%;
     }
 
     .message {

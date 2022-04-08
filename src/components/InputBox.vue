@@ -41,4 +41,9 @@
         font-size: 1rem;
         padding: 0.375rem 0.75rem;
 }
+    .input-group.input-group-sm {
+        margin-left: 3%;
+        width: 94%;
+        margin-top: 2rem;
+}
 </style>

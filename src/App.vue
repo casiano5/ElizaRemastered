@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <div class="app" :class="mode">
+    <div id="app" :class="mode">
         <DarkMode @change-theme=changeTheme></DarkMode>
         <SettingsButton @show-settings-modal="showSettingsModal" @change-theme="changeTheme"/>
         <ChatWindow/>
@@ -20,23 +20,20 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
-        color: #2c3e50;
         margin-left: 0rem;
         width: 100%;
-        height: 100vh;
-        background-color: #15202B;
+        height: 100vh;  
     }
     body{
-        /*background:#eceff1 !important;*/
-        color: #15202B;
+        color: #35383e;
     }
     
     .light{
         background: #eceff1
     }
     .dark{
-        background: #15202B !important;
-        background-color: #15202B !important;
+        background-color: #35383e !important;
+        background: #35383e !important;
         color:#eceff1;
     }
 </style>

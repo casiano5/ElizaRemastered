@@ -1,5 +1,5 @@
 <template>
-    <p class="eliza-tag m-0 ps-3">Eliza</p>
+    <p class="eliza-tag m-0" style="padding-left: 4%;">Eliza</p>
     <div class="eli messages">
         <div class="message last">
             {{msg}}
@@ -44,6 +44,7 @@
         margin-top: 5px;
         display: flex;
         flex-direction: column;
+        margin-left: 3%;
     }
 
     .message {
@@ -86,7 +87,7 @@
         left: -10px;
         width: 10px;
         height: 20px;
-        background: #eceff1;
+        background: currentColor ;
         border-bottom-right-radius: 10px;
     }
 
