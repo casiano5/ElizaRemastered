@@ -2,9 +2,9 @@
 <template>
   <div class="modal fade" ref="settingsModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" :class="mode">
         <div class="modal-header">
-          <h5 class="modal-title">Settings</h5>
+          <h5 style="color: black" class="modal-title">Settings</h5>
           <button type="button" class="btn-close" @click="modal.hide()" aria-label="Close"></button>
         </div>
 
@@ -14,7 +14,7 @@
               <LanguageSelect></LanguageSelect>
             </div>
             <div style="position:absolute;left: 45%">
-              <DarkMode></DarkMode>
+              <DarkMode>@change-theme="changeTheme"</DarkMode>
             </div>
             <div style="position:absolute;left: 75%">
               <TextToSpeechButton></TextToSpeechButton>
@@ -55,6 +55,10 @@
         saveSettings() {
             //Save and reload eliconfig
         },
+        changeTheme(){
+          console.log("change from button");
+          this.$emit("change-theme", this.$event);
+        }
     },
     components: { TextToSpeechButton, LanguageSelect, DarkMode }
 };
