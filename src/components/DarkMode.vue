@@ -2,8 +2,8 @@
 </script>
 
 <template>
-    <button type="button" class="btn btn-primary" @click="toggleDarkMode">
-        <img src="../assets/Lightbulb.svg">
+    <button type="button" class="btn btn-primary" @click="toggleDarkMode();">
+        <img :src = "imagePath">
     </button>
 </template>
 
@@ -14,9 +14,21 @@
             toggleDarkMode(){
                 global.config.darkModeEnable = !global.config.darkModeEnable;
                 global.writeConfig();
+                if(this.imagePath === require("../assets/Lightbulb.svg")){
+                    this.imagePath = require("../assets/LightbulbFill.svg");
+                }
+                else {
+                    this.imagePath = require("../assets/Lightbulb.svg");
+                }
                 this.$emit("change-theme");
             },
+        },
+        data () {
+            return {
+                imagePath: require("../assets/LightbulbFill.svg")
+            }
         }
+
     }
 </script>
 
