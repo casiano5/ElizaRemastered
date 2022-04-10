@@ -14,10 +14,7 @@
             toggleDarkMode(){
                 global.config.darkModeEnable = !global.config.darkModeEnable;
                 global.writeConfig();
-                this.$emit("change-theme", this.$event);
-            },
-            testFunc(){
-                console.log("testing the func");
+                this.$emit("change-theme");
             },
         }
     }
