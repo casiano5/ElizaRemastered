@@ -1,7 +1,7 @@
 <template>
     <p class="eliza-tag m-0" style="padding-left: 4%;">Eliza</p>
     <div class="eli messages">
-        <div class="message last">
+        <div class="message last" :class="mode">
             {{msg}}
         </div>
     </div>
@@ -19,6 +19,11 @@
         },
         props: {
             msg: String
+        },
+        data (){
+            return {
+                mode: require('../js/globals').config.darkModeEnable ? "dark1": ""
+            }
         }
     }
 </script>
@@ -64,31 +69,6 @@
         margin-right: 25%;
         background-color: #0d6efd;
         position: relative;
-    }
-
-    .eli .message.last:before {
-        content: "";
-        position: absolute;
-        z-index: 0;
-        bottom: 0;
-        left: -7px;
-        height: 20px;
-        width: 20px;
-        background: #0d6efd;
-        background-attachment: fixed;
-        border-bottom-right-radius: 15px;
-    }
-
-    .eli .message.last:after {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        bottom: 0;
-        left: -10px;
-        width: 10px;
-        height: 20px;
-        background: currentColor ;
-        border-bottom-right-radius: 10px;
     }
 
     .eliza-tag{

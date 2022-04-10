@@ -1,7 +1,7 @@
 <template>
     <p class="user-tag m-0 ps-3" style="text-align: right; padding-right: 4%;">User</p>
     <div class="user messages">
-        <div class="message last">
+        <div class="message last" :class="mode" >
             {{msg}}
         </div>
     </div>
@@ -11,6 +11,11 @@
     export default {
         props: {
             msg: String
+        },
+        data () {
+            return {
+                mode: require('../js/globals').config.darkModeEnable ? "dark1   " : ""
+            }
         }
     }
 </script>
@@ -49,30 +54,5 @@
         background: #ffffff;
         background-attachment: fixed;
         position: relative;
-    }
-
-    .user .message.last:before {
-        content: "";
-        position: absolute;
-        z-index: 0;
-        bottom: 0;
-        right: -8px;
-        height: 20px;
-        width: 20px;
-        background: white;
-        background-attachment: fixed;
-        border-bottom-left-radius: 15px;
-    }
-
-    .user .message.last:after {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        bottom: 0;
-        right: -10px;
-        width: 10px;
-        height: 20px;
-        background: #eceff1;
-        border-bottom-left-radius: 10px;
     }
 </style>
