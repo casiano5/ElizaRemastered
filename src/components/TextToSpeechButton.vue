@@ -3,7 +3,7 @@
 
 <template>
     <button type="button" class="btn btn-primary" @click="toggleSpeechToText">
-        <img src="../assets/SpeakerIcon.svg">
+        <img :src = "imagePath">
     </button>
 </template>
 
@@ -15,6 +15,17 @@ export default {
             toggleSpeechToText(){
                 global.config.textToSpeechEnable = !global.config.textToSpeechEnable;
                 global.writeConfig();
+                if(this.imagePath === require("../assets/SpeakerOffIcon.svg")){
+                    this.imagePath = require("../assets/SpeakerIcon.svg");
+                }
+                else{
+                    this.imagePath = require("../assets/SpeakerOffIcon.svg");
+                }
+            }
+        },
+        data() {
+            return{
+                imagePath: require("../assets/SpeakerIcon.svg")
             }
         }
 }
