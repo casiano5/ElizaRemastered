@@ -4,7 +4,7 @@ import re
 import sys
 from collections import namedtuple
 from xml.etree.ElementTree import tostring
-
+import translate
 
 try:
     input = raw_input
@@ -217,11 +217,14 @@ class Eliza:
         return random.choice(self.finals)
     
     def converse(self, message):
-        
-        output = self.respond(message)
-        print(output)
-        
-        return output
+        #translate into English first and get detectedlanguage code
+        detectedLng = translate.detect(message)
+        msg = translate.translate(message)
+        msg = self.respond(msg)
+        #translate back to detectedLng
+        msg = translate.translate(msg,detectedLng)
+        #print(msg)
+        return msg
         
     def run(self):
         print(self.initial())

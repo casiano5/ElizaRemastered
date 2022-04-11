@@ -1,7 +1,7 @@
 import logging
 import ask_sdk_core.utils as ask_utils
 import eliza_alexa_front
-
+import translate
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
@@ -16,7 +16,17 @@ logger.setLevel(logging.INFO)
 eliza = eliza_alexa_front.Eliza()
 eliza.load('doctor.txt')
 
-
+#supported language initiators
+langs = {
+        "en-US":"How do you do. Please state your problem.",
+        "fr-FR":"Comment faites-vous. Veuillez indiquer votre problème.",
+        "it-IT":"Come va. Si prega di indicare il problema.",
+        "ja-JP":"Gokigen'yō. Mondai o nobete kudasai.",
+        "es-ES":"Cómo estás. Por favor, indique su problema.",
+        "pt-BR":"Como vai. Por favor, indique o seu problema.",
+        "hi-IN":"aap kaise hain. krpaya apanee samasya bataen.",
+        "de-DE":"Wie geht's. Bitte nennen Sie Ihr Problem."
+        }
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
@@ -27,7 +37,10 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = eliza.converse("hello")
+        # get eliza's locale instance language settings in greetings
+        #speak_output = eliza.converse(langs[handler_input.request_envelope.request.locale])
+        speak_output = langs[handler_input.request_envelope.request.locale]
+        
 
         return (
             handler_input.response_builder
@@ -88,7 +101,11 @@ class CancelOrStopIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Goodbye! from Rep Crew"
+        detectedLng = handler_input.request_envelope.request.locale
+        translateCode,sep,tail = detectedLng.partition("-")
+        speak_output = translate.translate("Goodbye! from 'Rep Crew'",translateCode)
+        
+        
 
         return (
             handler_input.response_builder
