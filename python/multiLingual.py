@@ -9,7 +9,7 @@ import os
 from io import BytesIO
 
 dic = ('chinese', 'zh-cn', 'dutch', 'nl', 'english', 'en',
-       'french', 'fr', 'german', 'de', 'italian', 'it', 'japanese', 'ja',
+       'french', 'fr', 'german', 'de', 'hindi', 'hi', 'italian', 'it', 'japanese', 'ja',
        'korean', 'ko', 'portuguese', 'pt', 'spanish', 'es')
 
 
@@ -18,7 +18,7 @@ query = STT()
 while (query == "None"):
     query = STT()
 
-# enter the language to translate say "spanish", ect
+# could enter the language to translate say "spanish", ect
 # we could take this whole section out since Dr file is in english, or use it to output audio and text
 # back in the original language used
 """"
@@ -54,13 +54,11 @@ text = text_to_translate.text
 # using google text to speech method to input translated speech to destinatin language
 # stored in to_lang, 3 arg is false since its slow
 speak = gTTS(text=text, lang=to_lang, slow=False)
-
-
 mp3_fp = BytesIO()
 speak.write_to_fp(mp3_fp)
 mp3_fp.seek(0)
 response = AudioSegment.from_file(mp3_fp, format="mp3")
 
-# play(response)  # audio out
+play(response)  # audio out could just pass to our other speech filec
 
-print(text)  # text out
+# print(text)  # text out
