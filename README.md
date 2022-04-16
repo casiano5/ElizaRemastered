@@ -13,7 +13,7 @@
 
 ## Building Instructions
 `npm install` in project root  
-`npm run electron:build` in project root
+`npm run electron:build` in project root  
 The build script will build a version of Eliza Remastered for your current operating system, for changing these and other build parameters, consult [Electron Builder](https://www.electron.build/)
 
 ## Testing instructions
