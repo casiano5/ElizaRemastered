@@ -2,15 +2,13 @@
     import ChatWindow from './components/ChatWindow.vue'
     import SettingsButton from './components/SettingsButton.vue';
     import SettingsModal from './components/SettingsModal.vue';
-    import DarkMode from './components/DarkMode.vue';
 </script>
 
 <template>
     <div id="app" :class="mode">
-        <DarkMode @change-theme=changeTheme></DarkMode>
-        <SettingsButton @show-settings-modal="showSettingsModal" @change-theme="changeTheme"/>
+        <SettingsButton @show-settings-modal="showSettingsModal"/>
         <ChatWindow/>
-        <SettingsModal ref='settingsModal'/>
+        <SettingsModal @change-theme="changeTheme" ref='settingsModal'/>
     </div>
 </template>
 

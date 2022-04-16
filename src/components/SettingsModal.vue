@@ -14,7 +14,7 @@
               <LanguageSelect></LanguageSelect>
             </div>
             <div style="position:absolute;left: 45%">
-              <DarkMode>@change-theme="changeTheme"</DarkMode>
+              <DarkMode @change-theme="changeTheme"/>
             </div>
             <div style="position:absolute;left: 75%">
               <TextToSpeechButton></TextToSpeechButton>
@@ -57,7 +57,7 @@
         },
         changeTheme(){
           console.log("change from button");
-          this.$emit("change-theme", this.$event);
+          this.$emit("change-theme");
         }
     },
     components: { TextToSpeechButton, LanguageSelect, DarkMode }
