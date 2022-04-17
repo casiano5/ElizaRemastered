@@ -10,7 +10,8 @@
 </template>
 
 <script>
-    const pyConnector = require('../js/pyConnector')
+    const pyConnector = require('../js/pyConnector');
+    const global = require('../js/globals.js');
     export default {
         methods: {
             sendMessageToEliza(){
@@ -25,10 +26,10 @@
             },
             toggleSpeechToText(){
                 if (this.message != undefined){
-                    this.message = this.message + " " + pyConnector.speechToText(undefined, "en");
+                    this.message = this.message + " " + pyConnector.speechToText(undefined, global.config.language);
                 }
                 else{
-                    this.message = pyConnector.speechToText(undefined, "en");
+                    this.message = pyConnector.speechToText(undefined, global.config.language);
                 }
                 this.$forceUpdate();
             }
