@@ -1,6 +1,3 @@
-#from asyncio.windows_events import NULL
-#from curses.ascii import NUL
-#from fileinput import filename
 import speech_recognition as sr
 
 def STT(file="empty", language="en"):
@@ -15,7 +12,7 @@ def STT(file="empty", language="en"):
         # recoginize() will throw code if api unreachable
         try:
             # using google to translate speech file to text
-            text = r.recognize_google(audio_data)
+            text = r.recognize_google(audio_data, language=language)
         except:
             text = r.recognize_google(audio_data)
         return text
