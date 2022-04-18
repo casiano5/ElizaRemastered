@@ -20,5 +20,5 @@ def STT(file="empty", language="en"):
         # if file path is passed, use the file
         with sr.AudioFile(file) as source:
             audio_data = r.record(source)
-            text = r.recognize_google(audio_data)
+            text = r.recognize_google(audio_data, language=language)
     return text
