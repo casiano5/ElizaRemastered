@@ -4,12 +4,17 @@
 ![Test Cases](https://github.com/scasiano/ElizaRemastered/actions/workflows/python-app.yml/badge.svg)
 
 ## Required Dependancies for JS
-[Vite](https://vitejs.dev/)  
-[NodeJS](https://nodejs.org/)
+[Vue CLI 3](https://cli.vuejs.org/)  
+[NodeJS 16](https://nodejs.org/)
 
-## Running Instructions
-`npm run build` in project root
-`npm run electron:start` in project root
+## Dev Running Instructions
+`npm install` in project root  
+`npm run electron:serve` in project root
+
+## Building Instructions
+`npm install` in project root  
+`npm run electron:build` in project root  
+The build script will build a version of Eliza Remastered for your current operating system, for changing these and other build parameters, consult [Electron Builder](https://www.electron.build/)
 
 ## Testing instructions
 `pytest` in `/python`

@@ -35,3 +35,29 @@ import speech_text
 def test_stt(filepath, text):
     stt_out = speech_text.STT(".SttTestFiles/" + filepath)
     assert stt_out == text
+
+@pytest.mark.parametrize(
+    "filepath, language, text", [
+        ("dja1.wav","ja","到着しました 大臣"),
+        ("dja2.wav","ja","猿は何ですか"),
+        ("jfr1.wav","fr","je pense que j'ai mal à la tête"),
+        ("jfr2.wav","fr","j'ai perdu mon chapeau hier"),
+        ("nzh1.wav","zh-CN","我有两只猫"),
+        ("nzh2.wav","zh-CN","早上好中国现在我有冰淇淋"),
+        ("nzh3.wav","zh-CN","我最近工作压力很大"),
+        ("tzh1.wav","zh-CN","我没有任何问题"),
+        ("tzh2.wav","zh-CN","我的头有点疼"),
+        ("snl1.wav","nl","het werkt ook op zijn Nederlands"),
+        ("snl2.wav","nl","Ik kan niet wachten totdat ik project Eindelijk klaar is"),
+        ("sde1.wav","de","es funktioniert auch auf deutsch"),
+        ("sde2.wav","de","wir haben viele Test"),
+        ("ses1.wav","es","también funciona en español"),
+        ("ses2.wav","es","solo unas pocas semanas más"),
+        ("skr1.wav","ko","한국어로도 작동합니다"),
+        ("skr2.wav","ko","마지막 하나")
+    ]
+)
+
+def test_mlstt(filepath, language, text):
+    stt_out = speech_text.STT(".SttTestFiles/" + filepath, language)
+    assert stt_out == text
