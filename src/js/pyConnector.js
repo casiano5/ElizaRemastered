@@ -44,7 +44,7 @@ const speechToText = (file="empty", language = "en") => {
 exports.speechToText = speechToText;
 
 const textToSpeech = (input, language = "en") => {
-    child_process.execSync('python python/runnerTestToSpeech.py "' + input + '" "' + language + '" ');
+    child_process.execSync('python python/runnerTextToSpeech.py "' + input + '" "' + language + '" ');
 }
 exports.textToSpeech = textToSpeech;
 
@@ -71,6 +71,6 @@ const speechToTextMacOS = (file="empty", language = "en") => {
 if (global.basePathMacOS != undefined) exports.speechToText = speechToTextMacOS;
 
 const textToSpeechMacOS = (input, language = "en") => {
-    child_process.execSync('python3 ' + global.basePathMacOS + 'python/runnerTestToSpeech.py "' + input + '" "' + language + '" ');
+    child_process.execSync('python3 ' + global.basePathMacOS + 'python/runnerTextToSpeech.py "' + input + '" "' + language + '" ');
 }
 if (global.basePathMacOS != undefined) exports.textToSpeech = textToSpeechMacOS;
