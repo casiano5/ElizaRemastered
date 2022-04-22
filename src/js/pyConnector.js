@@ -1,12 +1,13 @@
 const child_process = require("child_process");
 const global = require('./globals');
-
+const fixPath = require('fix-path');
 let eliza;
 
 if (!global.config.pythonLibsInstalled) {
     //MacOS
     if (global.basePathMacOS != undefined){
         global.readConfig();
+        fixPath();
         child_process.execSync("pip3 install -r requirements.txt", {cwd: global.basePathMacOS});
         global.config.pythonLibsInstalled = true;
         global.writeConfig();
