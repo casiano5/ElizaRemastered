@@ -71,6 +71,6 @@ const speechToTextMacOS = (file="empty", language = "en") => {
 if (global.basePathMacOS != undefined) exports.speechToText = speechToTextMacOS;
 
 const textToSpeechMacOS = (input, language = "en") => {
-    child_process.execSync('python3 ' + global.basePathMacOS + 'python/runnerTextToSpeech.py "' + input + '" "' + language + '" ');
+    child_process.execSync('python3 python/runnerTextToSpeech.py "' + input + '" "' + language + '" ', {cwd: global.basePathMacOS});
 }
 if (global.basePathMacOS != undefined) exports.textToSpeech = textToSpeechMacOS;
