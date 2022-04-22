@@ -131,9 +131,6 @@ dmypy.json
 # MacOS Dir Store
 **.DS_Store
 
-# Manual TTS Test Files
-test_tts_manual/
-
 # Build
 /dist
 
