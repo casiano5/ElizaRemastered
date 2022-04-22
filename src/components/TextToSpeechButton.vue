@@ -3,7 +3,7 @@
 
 <template>
     <div class="form-check form-switch" >
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @click="toggleSpeechToText">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" v-bind:checked="TTSEnable" @click="toggleSpeechToText">
         <label class="form-check-label" for="flexSwitchCheckDefault">TTS</label>
     </div>
 </template>
@@ -25,7 +25,8 @@
         },
         data() {
             return{
-                imagePath: require("../assets/SpeakerIcon.svg")
+                imagePath: require("../assets/SpeakerIcon.svg"),
+                TTSEnable: global.config.textToSpeechEnable,
             }
         }
     }

@@ -3,7 +3,7 @@
 
 <template>
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @click="toggleDarkMode();">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" v-bind:checked="darkEnabled" @click="toggleDarkMode();">
         <label class="form-check-label" for="flexSwitchCheckDefault">Change Theme</label>
     </div>
 </template>
@@ -26,7 +26,8 @@
         },
         data () {
             return {
-                imagePath: require("../assets/LightbulbFill.svg")
+                imagePath: require("../assets/LightbulbFill.svg"),
+                darkEnabled: global.config.darkModeEnable,
             }
         }
     }
