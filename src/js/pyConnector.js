@@ -8,18 +8,16 @@ if (!global.config.pythonLibsInstalled) {
     //MacOS
     if (global.basePathMacOS != undefined){
         global.readConfig();
-        child_process.exec("pip3 install -r " + path.join(global.basePathMacOS, "requirements.txt"));
+        child_process.execSync("pip3 install -r " + path.join(global.basePathMacOS, "requirements.txt"));
         global.config.pythonLibsInstalled = true;
         global.writeConfig();
-        console.log("I am installing the python stuff on MacOS")
     } 
     //Everyone Else
     else if (process.env.NODE_ENV === 'production'){
         global.readConfig();
-        child_process.exec("pip install -r requirements.txt");
+        child_process.execSync("pip install -r requirements.txt");
         global.config.pythonLibsInstalled = true;
         global.writeConfig();
-        console.log("I am installing the python stuff on Windows")
     }
 }
 
