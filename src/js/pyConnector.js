@@ -6,9 +6,21 @@ let eliza;
 
 if (!global.config.pythonLibsInstalled) {
     //MacOS
-    if (global.basePathMacOS != undefined) child_process.exec("pip3 install -r " + path.join(global.basePathMacOS, "requirements.txt"));
+    if (global.basePathMacOS != undefined){
+        global.readConfig();
+        child_process.exec("pip3 install -r " + path.join(global.basePathMacOS, "requirements.txt"));
+        global.config.pythonLibsInstalled = true;
+        global.writeConfig();
+        console.log("I am installing the python stuff on MacOS")
+    } 
     //Everyone Else
-    else if (process.env.NODE_ENV === 'production') child_process.exec("pip install -r requirements.txt");
+    else if (process.env.NODE_ENV === 'production'){
+        global.readConfig();
+        child_process.exec("pip install -r requirements.txt");
+        global.config.pythonLibsInstalled = true;
+        global.writeConfig();
+        console.log("I am installing the python stuff on Windows")
+    }
 }
 
 //Python files to function, default case (Windows, dev builds <npm run electron:serve>)
