@@ -1,5 +1,4 @@
 const child_process = require("child_process");
-const path = require("path");
 const global = require('./globals');
 
 let eliza;
