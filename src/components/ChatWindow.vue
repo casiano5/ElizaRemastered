@@ -69,7 +69,7 @@
         padding-bottom: 80px;
     }
     #background-input{
-        background: #eceff1;
+        background: inherit;
         width: 100%;
         padding: 1%;
         padding-top: 0;
