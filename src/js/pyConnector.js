@@ -8,7 +8,7 @@ if (!global.config.pythonLibsInstalled) {
     //MacOS
     if (global.basePathMacOS != undefined){
         global.readConfig();
-        child_process.execSync("pip3 install -r " + path.join(global.basePathMacOS, "requirements.txt"));
+        child_process.execSync("pip3 install -r requirements.txt", {cwd: global.basePathMacOS});
         global.config.pythonLibsInstalled = true;
         global.writeConfig();
     } 
