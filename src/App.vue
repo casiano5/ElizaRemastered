@@ -1,13 +1,11 @@
 <script setup>
     import ChatWindow from './components/ChatWindow.vue'
-    import SettingsButton from './components/SettingsButton.vue';
     import SettingsModal from './components/SettingsModal.vue';
 </script>
 
 <template>
     <div id="app" :class="mode">
-        <SettingsButton @show-settings-modal="showSettingsModal"/>
-        <ChatWindow/>
+        <ChatWindow @show-settings-modal="showSettingsModal"/>
         <SettingsModal @change-theme="changeTheme" ref='settingsModal'/>
     </div>
 </template>

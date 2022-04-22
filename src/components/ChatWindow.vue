@@ -6,14 +6,16 @@
 </script>
 
 <template>
+
     <div id="all-messages" class="scrollable">
         <div v-for="message in messages" :key="message.counter">
             <UserMessage v-if="message.sender === 'user'" :msg="message.message"/>
             <ElizaMessage v-if="message.sender === 'eliza'" :msg="message.message"/>
         </div>
     </div>
-
-    <InputBox @message-sent="createNewSentMessage"/>
+    <div id="background-input">
+        <InputBox id="input-box" @message-sent="createNewSentMessage" @show-settings-modal="showSettingsModal"/>
+    </div>
 
 </template>
 
@@ -37,6 +39,9 @@
             this.$nextTick(() => this.scrollToEnd());
         },
         methods: {
+            showSettingsModal(){
+                this.$emit("show-settings-modal");
+            },
             createNewSentMessage(event){
                 messages.value.push({
                     counter: messageCount.value++,
@@ -55,11 +60,28 @@
 
 <style>
     .scrollable {
-        height: 80vh;
+        padding-top: 2%;
+        height: 100%;
         width: 100%;
         overflow-y: auto;
         overflow-x: auto;
         text-align: left;
         scroll-behavior: auto;
+        padding-bottom: 80px;
+    }
+    #background-input{
+        background: inherit;
+        width: 100%;
+        padding: 1%;
+        padding-top: 0;
+        margin-top: 0;
+        position: absolute;
+        margin: 0;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+    #input-box{
+        margin-top: 1.33%;
     }
 </style>

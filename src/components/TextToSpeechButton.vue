@@ -2,15 +2,15 @@
 </script>
 
 <template>
-    <button type="button" class="btn btn-primary" @click="toggleSpeechToText">
-        <img :src = "imagePath">
-    </button>
+    <div class="form-check form-switch" >
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" v-bind:checked="TTSEnable" @click="toggleSpeechToText">
+        <label class="form-check-label" for="flexSwitchCheckDefault">TTS</label>
+    </div>
 </template>
 
-
 <script>
-const global = require('../js/globals')
-export default {
+    const global = require('../js/globals')
+    export default {
         methods: {
             toggleSpeechToText(){
                 global.config.textToSpeechEnable = !global.config.textToSpeechEnable;
@@ -25,10 +25,12 @@ export default {
         },
         data() {
             return{
-                imagePath: require("../assets/SpeakerIcon.svg")
+                imagePath: require("../assets/SpeakerIcon.svg"),
+                TTSEnable: global.config.textToSpeechEnable,
             }
         }
-}
+    }
 </script>
+
 <style>
 </style>

@@ -2,9 +2,10 @@
 </script>
 
 <template>
-    <button type="button" class="btn btn-primary" @click="toggleDarkMode();">
-        <img :src = "imagePath">
-    </button>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" v-bind:checked="darkEnabled" @click="toggleDarkMode();">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Change Theme</label>
+    </div>
 </template>
 
 <script>
@@ -25,10 +26,10 @@
         },
         data () {
             return {
-                imagePath: require("../assets/LightbulbFill.svg")
+                imagePath: require("../assets/LightbulbFill.svg"),
+                darkEnabled: global.config.darkModeEnable,
             }
         }
-
     }
 </script>
 

@@ -1,14 +1,24 @@
 const child_process = require("child_process");
-const path = require("path");
 const global = require('./globals');
-
+const fixPath = require('fix-path');
 let eliza;
 
 if (!global.config.pythonLibsInstalled) {
     //MacOS
-    if (global.basePathMacOS != undefined) child_process.exec("pip3 install -r " + path.join(global.basePathMacOS, "requirements.txt"));
+    if (global.basePathMacOS != undefined){
+        global.readConfig();
+        fixPath();
+        child_process.execSync("pip3 install -r requirements.txt", {cwd: global.basePathMacOS});
+        global.config.pythonLibsInstalled = true;
+        global.writeConfig();
+    } 
     //Everyone Else
-    else if (process.env.NODE_ENV === 'production') child_process.exec("pip install -r requirements.txt");
+    else if (process.env.NODE_ENV === 'production'){
+        global.readConfig();
+        child_process.execSync("pip install -r requirements.txt");
+        global.config.pythonLibsInstalled = true;
+        global.writeConfig();
+    }
 }
 
 //Python files to function, default case (Windows, dev builds <npm run electron:serve>)
@@ -71,6 +81,6 @@ const speechToTextMacOS = (file="empty", language = "en") => {
 if (global.basePathMacOS != undefined) exports.speechToText = speechToTextMacOS;
 
 const textToSpeechMacOS = (input, language = "en") => {
-    child_process.execSync('python3 ' + global.basePathMacOS + 'python/runnerTextToSpeech.py "' + input + '" "' + language + '" ');
+    child_process.execSync('python3 python/runnerTextToSpeech.py "' + input + '" "' + language + '" ', {cwd: global.basePathMacOS});
 }
 if (global.basePathMacOS != undefined) exports.textToSpeech = textToSpeechMacOS;
