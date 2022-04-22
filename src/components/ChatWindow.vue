@@ -60,6 +60,7 @@
 
 <style>
     .scrollable {
+        padding-top: 2%;
         height: 100%;
         width: 100%;
         overflow-y: auto;
