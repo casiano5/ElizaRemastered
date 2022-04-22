@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <InputBox @message-sent="createNewSentMessage"/>
+    <InputBox @message-sent="createNewSentMessage" @show-settings-modal="showSettingsModal"/>
 
 </template>
 
@@ -37,6 +37,9 @@
             this.$nextTick(() => this.scrollToEnd());
         },
         methods: {
+            showSettingsModal(){
+                this.$emit("show-settings-modal");
+            },
             createNewSentMessage(event){
                 messages.value.push({
                     counter: messageCount.value++,
